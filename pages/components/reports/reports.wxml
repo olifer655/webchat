@@ -1,0 +1,24 @@
+<view class="reports">
+  <view class="reportItem" bindtap="toJump" data-id="{{item.id}}" data-status="{{item.status}}" wx:for="{{reportLists}}" wx:key="id">
+    <view class="info">
+      <view class="personInfo">
+        <view class="name">{{ item.respondentsName }}</view>
+        <view class="mobile">{{ item.respondentsPhoneNo }}</view>
+      </view>
+      <view class="data">{{ item.createTime }}</view>
+    </view>
+    
+    <view class="rarrow">
+      <view
+        wx:if="{{item.status === '100'}}"
+        class="accredit eg">{{ statusFilter[item.status] }}
+      </view>
+      <view
+        wx:else 
+        style="visibility: {{item.status === '3' ? 'hidden' : ''}};color: {{item.status !== '2' && item.status !== '3' ? '#ccc' : '#00B4BE'}};border: {{item.status !== '2' && item.status !== '3' ? '1rpx solid #ccc' : '1rpx solid #00B4BE'}};"
+        class="accredit">{{ statusFilter[item.status] }}
+      </view>
+      <image src="/images/rdrop.png" class="ricon"></image>
+    </view>
+  </view>
+</view>

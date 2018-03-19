@@ -1,0 +1,70 @@
+.selectCoupon {
+  position: absolute;
+  z-index: 100;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, .3);
+  display: flex;
+  flex-direction: column;
+}
+.couponView {
+  background-color: #fff;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.between {
+  display: flex;
+  justify-content: space-between
+}
+.couponLists {
+  padding:25rpx 30rpx 97rpx;
+}
+.ps {
+  color: #999999;
+  font-size: 26rpx;
+}
+.cancel {
+  font-size: 26rpx;
+  color: #238DE5;
+}
+.tips {
+  border-bottom: 1rpx solid #E5E5E5;
+  padding: 28rpx 30rpx 16rpx;
+}
+.block {
+  border: 1rpx solid #E5E5E5;
+  border-radius: 8rpx;
+  padding: 36rpx 40rpx 32rpx 30rpx;
+  font-size: 28rpx;
+  margin-bottom:20rpx;
+}
+.unit {
+  color: #FF7700;
+  font-size: 34rpx;
+}
+.couponMoney {
+  color: #FF7700;
+  font-size: 60rpx;
+  margin: 0 10rpx;
+}
+.couponType {
+  color: #464646;
+  font-size: 28rpx;
+}
+.validateDate {
+  color: #999;
+  font-size: 22rpx;
+}
+.markIcon {
+  display: inline-block;
+  height: 34rpx;
+  width: 34rpx;
+  padding: 6rpx 0rpx 0 0;
+}
+.couponOn {
+  background-color: #FFF9EC;
+}

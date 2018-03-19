@@ -1,0 +1,277 @@
+<view class="pageDetails">
+  <view class="tableTitle title">身份信息</view>
+  <view class="content">
+    <view class="commonTd">
+      <view class="commonTdKey">姓名</view>
+      <view class="commonTdValue">张大宝</view>
+    </view>
+    <view class="commonTd">
+      <view class="commonTdKey">性别</view>
+      <view class="commonTdValue">男</view>
+    </view>
+    <view class="commonTd">
+      <view class="commonTdKey">年龄</view>
+      <view class="commonTdValue">24岁</view>
+    </view>
+      <view class="commonTd">
+      <view class="commonTdKey">身份证号</view>
+      <view class="commonTdValue">222401************</view>
+    </view>
+      <view class="commonTd">
+      <view class="commonTdKey">籍贯</view>
+      <view class="commonTdValue">吉林省延边朝鲜族自治州延吉市</view>
+    </view>
+  </view>
+  <view class="tableTitle title">联系信息</view>
+  <view class="content">
+    <view class="commonTd">
+      <view class="commonTdKey">实名认证</view>
+      <view class="commonTdValue">通过</view>
+    </view>
+    <view class="commonTd">
+      <view class="commonTdKey">手机号</view>
+      <view class="commonTdValue">18333333333</view>
+    </view>
+    <view class="commonTd">
+      <view class="commonTdKey">状态</view>
+      <view class="commonTdValue">在网</view>
+    </view>
+      <view class="commonTd">
+      <view class="commonTdKey">在网时长</view>
+      <view class="commonTdValue">2年以上</view>
+    </view>
+  </view>
+  <view class="tableTitle title">学历信息</view>
+  <view class="content">
+    <view class="commonTd">
+      <view class="commonTdKey">认证结果</view>
+      <view class="commonTdValue">通过</view>
+    </view>
+    <view class="commonTd">
+      <view class="commonTdKey">毕业院校</view>
+      <view class="commonTdValue">长江学院</view>
+    </view>
+    <view class="commonTd">
+      <view class="commonTdKey">最高学历</view>
+      <view class="commonTdValue">硕士研究生</view>
+    </view>
+    <view class="commonTd">
+      <view class="commonTdKey">毕业时间</view>
+      <view class="commonTdValue">2015年</view>
+    </view>
+    <view class="commonTd">
+      <view class="commonTdKey">学习形式</view>
+      <view class="commonTdValue">自考</view>
+    </view>
+    <view class="commonTd">
+      <view class="commonTdKey">结论</view>
+      <view class="commonTdValue">毕业</view>
+    </view>
+  </view>
+  <view class="tableTitle title">健康证</view>
+  <view class="contentno">
+    <view class="block">
+      <view class="subTitle">北京健康证</view>
+      <view class="commonTd">
+        <view class="commonTdKey">体检结果</view>
+        <view class="commonTdValue">合格</view>
+      </view>
+      <view class="commonTd">
+        <view class="commonTdKey">体检类型</view>
+        <view class="commonTdValue">食品类</view>
+      </view>
+      <view class="commonTd">
+        <view class="commonTdKey">证件号码</view>
+        <view class="commonTdValue">浙 12345****</view>
+      </view>
+      <view class="commonTd">
+        <view class="commonTdKey">体检机构</view>
+        <view class="commonTdValue">浙江省杭州市西湖区XX服务中心</view>
+      </view>
+      <view class="commonTd">
+        <view class="commonTdKey">体检日期</view>
+        <view class="commonTdValue">2018-01-01</view>
+      </view>
+    </view>
+    <view class="block">
+      <view class="subTitle">上海健康证</view>
+      <view class="commonTd">
+        <view class="commonTdKey">体检结果</view>
+        <view class="commonTdValue">合格</view>         
+      </view>
+      <view class="commonTd">
+        <view class="commonTdKey">体检类型</view>
+        <view class="commonTdValue">          
+          <view>E类</view>
+          <view class="sub">E食品生产加工企业从业人员</view>
+        </view>
+      </view>
+      <view class="commonTd">
+        <view class="commonTdKey">证件号码</view>
+        <view class="commonTdValue">浙</view>
+      </view>
+      <view class="commonTd">
+        <view class="commonTdKey">毕业时间</view>
+        <view class="commonTdValue">2015年</view>
+      </view>
+      <view class="commonTd">
+        <view class="commonTdKey">体检机构</view>
+        <view class="commonTdValue">浙江省杭州市西湖区XX服务中心</view>
+      </view>
+      <view class="commonTd">
+        <view class="commonTdKey">体检日期</view>
+        <view class="commonTdValue">2018-01-01</view>
+      </view>
+    </view>
+  </view>
+  <view class="tableTitle title">职业资格证</view>
+  <view class="contentno">
+    <view class="block">
+      <view class="subTitle">理财规划师</view>
+      <view class="commonTd">
+        <view class="commonTdKey">级别</view>
+        <view class="commonTdValue">国家一级</view>
+      </view>
+      <view class="commonTd">
+        <view class="commonTdKey">证书编号</view>
+        <view class="commonTdValue">12345****</view>
+      </view>
+      <view class="commonTd">
+        <view class="commonTdKey">发证单位</view>
+        <view class="commonTdValue">人力资源和社会保障部</view>
+      </view>
+      <view class="commonTd">
+        <view class="commonTdKey">发证日期</view>
+        <view class="commonTdValue">2018-01-01</view>
+      </view>
+    </view>
+    <view class="block">
+      <view class="subTitle">国家一级工程师</view>
+      <view class="commonTd">
+        <view class="commonTdKey">级别</view>
+        <view class="commonTdValue">国家一级</view>
+      </view>
+      <view class="commonTd">
+        <view class="commonTdKey">证书编号</view>
+        <view class="commonTdValue">12345****</view>
+      </view>
+      <view class="commonTd">
+        <view class="commonTdKey">发证单位</view>
+        <view class="commonTdValue">人力资源和社会保障部</view>
+      </view>
+      <view class="commonTd">
+        <view class="commonTdKey">发证日期</view>
+        <view class="commonTdValue">2018-01-01</view>
+      </view>
+    </view>
+  </view>
+  <view class="tableTitle title">社保信息</view>
+  <view class="contentno">
+    <view class="block">
+      <view class="commonTd">
+        <view class="commonTdKey">缴存城市</view>
+        <view class="commonTdValue">浙江省杭州市</view>
+      </view>
+      <view class="commonTd">
+        <view class="commonTdKey">账户状态</view>
+        <view class="commonTdValue">正常</view>
+      </view>
+    </view> 
+    <view class="block">  
+      <view class="commonTd">
+        <view class="commonTdKey">缴存单位1</view>
+        <view class="commonTdValue">。。。。</view>
+      </view>
+      <view class="commonTd">
+        <view class="commonTdKey">起始时间</view>
+        <view class="commonTdValue">。。</view>
+      </view>
+      <view class="commonTd">
+        <view class="commonTdKey">最终时间</view>
+        <view class="commonTdValue">.....</view>
+      </view>
+    </view> 
+    <view class="block">  
+      <view class="commonTd">
+        <view class="commonTdKey">缴存单位2</view>
+        <view class="commonTdValue">2018-01-01</view>
+      </view>
+      <view class="commonTd">
+        <view class="commonTdKey">起始时间</view>
+        <view class="commonTdValue">XXXXXX</view>
+      </view>
+      <view class="commonTd">
+        <view class="commonTdKey">最终时间</view>
+        <view class="commonTdValue">XXXXXX</view>
+      </view>
+    </view>
+  </view>
+  <view class="tableTitle title">公积金信息</view>
+  <view class="contentno">
+    <view class="block">
+      <view class="commonTd">
+        <view class="commonTdKey">缴存城市</view>
+        <view class="commonTdValue">浙江省杭州市</view>
+      </view>
+      <view class="commonTd">
+        <view class="commonTdKey">账户状态</view>
+        <view class="commonTdValue">正常</view>
+      </view>
+    </view> 
+    <view class="block">  
+      <view class="commonTd">
+        <view class="commonTdKey">缴存单位1</view>
+        <view class="commonTdValue">杭州速保网络有限公司</view>
+      </view>
+      <view class="commonTd">
+        <view class="commonTdKey">起始时间</view>
+        <view class="commonTdValue">2017-01-01</view>
+      </view>
+      <view class="commonTd">
+        <view class="commonTdKey">最终时间</view>
+        <view class="commonTdValue">2017-12-20</view>
+      </view>
+    </view> 
+    <view class="block">  
+      <view class="commonTd">
+        <view class="commonTdKey">缴存单位2</view>
+        <view class="commonTdValue">杭州速保网络有限公司</view>
+      </view>
+      <view class="commonTd">
+        <view class="commonTdKey">起始时间</view>
+        <view class="commonTdValue">2018-01-01</view>
+      </view>
+      <view class="commonTd">
+        <view class="commonTdKey">最终时间</view>
+        <view class="commonTdValue">2018-02-01</view>
+      </view>
+    </view>
+  </view>
+  <view class="tableTitle title">负面信息</view>
+  <view class="content">
+    <view class="negativeItem">
+      <view>是否网贷逾期</view>
+      <view class="bad">是</view>
+    </view>
+    <view class="negativeItem">
+      <view>是否在法院公开被执行人名单</view>
+      <view>否</view>
+    </view>
+    <view class="negativeItem">
+      <view>是否在法院公开失信被执行人名单</view>
+      <view>否</view>
+    </view>
+    <view class="negativeItem">
+      <view>是否存在犯罪记录</view>
+      <view>否</view>
+    </view>
+    <view class="negativeItem">
+      <view>是否是吸毒人员</view>
+      <view>否</view>
+    </view>
+  </view>
+</view> 
+
+
+
+

@@ -1,0 +1,94 @@
+/**app.wxss**/
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+} 
+page {
+  background-color: #f9f9f9;
+}
+button::after{ border: none; }
+image {
+  display: block;
+}
+
+.table {
+  border-top: 1rpx solid #e3e3e3;
+  border-bottom: 1rpx solid #e3e3e3;
+  background-color: #fff;
+}
+
+.tr {
+  border-bottom: 1rpx solid #e3e3e3;
+  margin-left: 30rpx;
+  padding: 30rpx 30rpx 30rpx 0;
+}
+
+.tr2 {
+  border-bottom: 1rpx solid #e3e3e3;
+  margin-left: 30rpx;
+  padding: 20rpx 20rpx 20rpx 0;
+}
+
+.tr2:last-child, .tr:last-child {
+  border-bottom: 0;
+}
+
+.between {
+  display: flex;
+  justify-content: space-between
+}
+
+.commonTd {
+  display: flex;
+  padding-top: 30rpx;
+}
+.flex {
+  display: flex;
+}
+.commonTdKey {
+  flex: 1;
+  color: #9B9B9B;
+}
+.commonTdValue {
+  flex: 3;
+  color: #464646;
+}
+.formItemKey {
+  flex: 1;
+  color: #464646;
+  font-size: 32rpx;
+}
+.formItemValue {
+  flex: 4;
+  color: #999999;
+  font-size: 32rpx;
+}
+.placeholder {
+  color: #CCCCCC;
+  font-size: 32rpx;
+}
+.tableTitle {
+  color: #464646;
+  font-size: 30rpx;
+  line-height: 37.34rpx;
+  padding: 0 17rpx;
+  margin: 30rpx 0 15rpx;
+}
+.warning {
+  color: #FF7700;
+}
+.disable {
+  color: #999;
+}
+.tips {
+  background-color: #D2FFFF;
+  color: #00B4BE;
+  font-size: 30rpx;
+  padding: 20rpx 0;
+  text-align: center;
+}
+

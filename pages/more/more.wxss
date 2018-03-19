@@ -1,0 +1,39 @@
+.about {
+  display: flex;
+  justify-items: center;
+  align-items:center;
+  flex-direction: column;
+  margin-top: 31rpx;
+  margin-bottom: 31rpx;
+  border-top: 1rpx solid #e3e3e3;
+  border-bottom: 1rpx solid #e3e3e3;
+  background-color: #fff;
+  color: #464646;
+  font-size: 30rpx;
+}
+.logo {
+  width: 160rpx;
+  height: 160rpx;
+  margin-top: 22rpx;
+}
+.slogan {
+  font-size: 34rpx;
+  text-align: center;
+}
+.introduce {
+  margin: 56rpx 50rpx 0;
+}
+.section {
+  margin-bottom: 51rpx;
+}
+
+.btn {
+  width: 100%;
+  font-size: 34rpx;
+  color: #00A2FF;
+  text-align: center;
+  background-color:#fff;
+  padding: 34rpx 0 32rpx;
+  border-top: 1rpx solid #e3e3e3;
+  border-bottom: 1rpx solid #e3e3e3;
+}

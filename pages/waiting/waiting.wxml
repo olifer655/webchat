@@ -1,0 +1,54 @@
+<block wx:if="{{candidateInfo.status === '6' || candidateInfo.status === '1'}}">
+  <view wx:if="{{candidateInfo.status === '6'}}">报告生产失败</view>
+  <view wx:else>背调已终止</view>
+</block>
+<block wx:else>
+  <view class="tip no_coupon" style="backgroundColor:{{ pstate.status === '6' ? '#F5A623' : '#2F7DCD'}}">
+    {{ statusContent[candidateInfo.status] }}
+  </view>
+</block>
+<view class="table">
+  <view class="tr">
+    <text class="label">姓名</text>
+    <text class="value">{{ candidateInfo.name }}</text>
+  </view>
+  <view class="tr">
+    <text class="label">手机号</text>
+    <text class="value">{{ candidateInfo.mobile }}</text>
+    </view>
+  <view class="tr">
+    <text class="label">内容</text>
+    <text class="value">身份证信息认证 手机号实名认证 学历信息认证 负面信息查询</text>
+  </view>
+</view>
+<block wx:if="{{candidateInfo.status === '6' || candidateInfo.status === '1'}}">
+  <view class="explain">
+    <text class="explainTitle">退款说明</text>
+    <view wx:if="{{candidateInfo.status === '6' && !isRefund}}">
+      背调费用将在3个工作日内退回支付账户，请注意查收。
+    </view>
+    <view wx:if="{{candidateInfo.status === '6' && isRefund}}">
+      背调费用已退回支付账户，请注意查收。
+    </view>
+    <view wx:if="{{candidateInfo.status === '1' && !isRefund}}">
+      平台将收取背调金。。。。。背调费用将在3个工作日内退回支付账户，请注意查收。
+    </view>
+    <view wx:if="{{candidateInfo.status === '1' && isRefund}}">
+      平台将收取背调金****背调费用已退回支付账户，请注意查收。
+    </view>
+  </view>
+</block>
+<view class="checkBill">
+  查看报告账单
+</view>
+<block wx:if="{{candidateInfo.status === '0' || candidateInfo.status === '4'}}">
+  <view class="foot_bar">
+    <view class="ps" wx:if="{{candidateInfo.status === '0'}}">
+      注：候选人授权后，将无法终止背调
+    </view>
+    <view class="btn">
+      <text bindtap="cancel" wx:if="{{candidateInfo.status === '0'}}" >终止背调</text>
+      <text class="disabled" wx:else>候选人已授权，无法终止背调</text>
+    </view>
+  </view>
+</block>

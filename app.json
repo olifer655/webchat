@@ -1,0 +1,55 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/bill/bill",
+    "pages/billdetail/billdetail",
+    "pages/coupon/coupon",
+    "pages/certification/certification",
+    "pages/detail/detail",
+    "pages/example/example",
+    "pages/help/help",
+    "pages/introduce/introduce",
+    "pages/launch/index",
+    "pages/login/login",
+    "pages/more/more",
+    "pages/pay/pay",
+    "pages/profile/profile",
+    "pages/tocertification/tocertification",
+    "pages/waiting/waiting"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff", 
+    "navigationBarTitleText": "简简认证助手",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#eeeeee"
+  },
+  "tabBar": {
+    "selectedColor": "#000000",
+    "list": [{
+      "pagePath": "pages/index/index",
+      "text": "首页",
+      "iconPath": "./images/home1.png",
+      "selectedIconPath": "./images/home.png"
+    }, {
+      "pagePath": "pages/launch/index",
+      "text": "发起背调",
+      "iconPath": "./images/lanch1.png",
+      "selectedIconPath": "./images/lanch.png"
+    }, {
+      "pagePath": "pages/profile/profile",
+      "text": "我的",
+      "selectedColor": "#1aad16",
+      "iconPath": "./images/profile1.png",
+      "selectedIconPath": "./images/profile.png"
+    }],
+    "color": "#878B90",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "black"
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "downloadFile": 10000
+  },
+  "debug": true
+}

@@ -1,0 +1,54 @@
+image {
+  max-width: 100%;
+}
+.banner {
+  width: 100%;
+  height: 250rpx;
+  display: block;
+}
+.box {
+  margin-bottom: 20rpx;
+  background-color: #fff;
+  padding: 30rpx 43.6rpx 40rpx 44rpx;
+  position: relative;
+}
+.title {
+  margin-bottom: 30rpx;
+  font-size: 30rpx;
+  color: #464646;
+}
+.main {
+  font-size: 28rpx;
+  color: #464646;
+  margin-top: 43rpx;
+}
+.subTitle {
+  margin-bottom: 10rpx;
+  line-height: 43rpx;
+}
+.sub_main {
+  color: #9B9B9B;
+  margin: 0 0 10rpx 22rpx;
+}
+.sub_main_v {
+  color: #9B9B9B;
+  margin-bottom: 30rpx;
+}
+.flow {
+  margin: 30rpx 58rpx 13rpx 58rpx;
+  height: 560rpx;
+}
+.padding_bottom {
+  margin-bottom: 240rpx;
+}
+.QRcode {
+  position: fixed;
+  width: 100%;
+  height: 240rpx;
+  left: 0;
+  bottom: 0;
+}
+.QRcode >image {
+  vertical-align: bottom;
+  width: 100%;
+}

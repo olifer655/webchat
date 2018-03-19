@@ -1,0 +1,13 @@
+<view>
+  <view class="content">
+    <view class="introduce">
+      <image class="introducePic" bindtap="toJump" src="/images/rectangle.png" mode="aspectFit" background-size="cover"></image>
+      <view class="recommend">
+        <view class="headline">简简背调介绍</view>
+        <view class="mainBody">
+        你身边权威、便捷的背调助手。在合法合规且充分获得候选人授权的前提下，查询个人信息并生成认证报告。        </view>
+      </view>
+    </view> 
+  </view>
+  <Reports class="reports" report-lists="{{egReportLists}}" is-eg="true"></Reports>
+</view>

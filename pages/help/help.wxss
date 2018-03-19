@@ -1,0 +1,25 @@
+.help {
+  margin-top: 30rpx;
+  border-top: 1px solid #e3e3e3;
+  background-color: #fff;
+}
+.iterm {
+  padding: 28rpx 30rpx;
+  border-bottom: 1px solid #e3e3e3;
+  color: #464646;
+  font-size: 32rpx;
+}
+.itermBar {
+  display: flex;
+  justify-content: space-between;
+  align-items:center;
+}
+.itermText {
+  padding: 40rpx 0 0;
+  font-size: 30rpx;
+  color: #999999;
+}
+.dicon {
+  width: 26rpx;
+  height: 16rpx;
+}

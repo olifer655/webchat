@@ -1,0 +1,53 @@
+.content {
+  margin-bottom: 53rpx;
+  background-color: #fff;
+  box-shadow: 0 2px 20px 0 #BCCBD8;
+}
+.introduce {
+  margin: 0rpx;
+  padding: 0;
+}
+.introducePic {
+  max-width: 100%;
+  width: 710rpx;
+  margin: 44rpx 20rpx 0 20rpx;
+  vertical-align: center;
+}
+.recommend {
+  padding: 26rpx 30rpx 35rpx;
+  font-size: 30rpx;
+}
+.headline {
+  color: #464646;
+  font-weight: 500px;
+  padding-bottom: 19rpx;
+}
+.mainBody {
+  color: #999;
+  line-height: 42rpx;
+}
+.reportItem {
+  margin-left: .4rpx;
+  padding-right: .29rpx;
+  border-bottom: 1rpx solid #fff;
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
+}
+.info {
+  color: #464646;
+}
+.personInfo {
+  font-size: .3rpx;
+  margin: .3rpx 0 .1rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 4rpx;
+}
+.name {
+  margin-right: .1rpx;
+}
+.mobile {
+  color: #464646;
+}

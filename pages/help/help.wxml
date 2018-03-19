@@ -1,0 +1,35 @@
+<view class="help">
+  <view class="iterm">
+    <view class="itermBar" bindtap="lanch">
+      <view>如何发起背调?</view>
+      <image src="/images/ddrop.png" class="dicon" animation="{{animationLanch}}"></image>
+    </view>
+    <view class="itermText" wx:if="{{isLanch}}">
+      这里是详细的细致的明确的正确的答案这里是详细的
+      细致的明确的正确的答案细致的明确的正确的答案细
+      细致的明确的正确的答案细致的明确的正确的答案致
+      细致的明确的正确的答案细致的明确的正确的答案的
+      明确的正确的答案
+    </view>
+  </view>
+  <view class="iterm">
+    <view class="itermBar" bindtap="coupon">
+      <view>如何使用优惠券？</view>
+      <image src="/images/ddrop.png" class="dicon" animation="{{animationCoupon}}"></image>
+    </view>
+    <view class="itermText" wx:if="{{isCoupon}}">
+      细致的明确的正确的答案细致的明确的正确的答案致
+      细致的明确的正确的答案细致的明确的正确的答案的
+      明确的正确的答案
+    </view>
+  </view>
+  <view class="iterm">
+    <view class="itermBar" bindtap="stop">
+      <view>终止背调后，钱如何退回？</view>
+      <image src="/images/ddrop.png" class="dicon" animation="{{animationStop}}"></image>
+    </view>
+    <view class="itermText" wx:if="{{isStop}}">
+      这里是详细的细致的明确的正确的答案这里是详细的
+    </view>
+  </view>
+</view>

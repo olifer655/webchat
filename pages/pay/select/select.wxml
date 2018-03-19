@@ -1,0 +1,29 @@
+<view class="selectCoupon">
+  <view class="couponView">
+    <view class="between tips">
+      <view class="ps">优惠券一次性抵用，不叠加、不找零</view>
+      <view class="cancel" bindtap="closecoupon" data-index="undefined">取消</view>
+    </view>
+    <view class="couponLists">
+      <view class="block between {{isSelect ? 'couponOn' : ''}}" bindtap="closecoupon" data-index="no">
+        <view>不使用优惠券</view>
+        <image wx:if="{{isSelect}}" mode="aspectFit" src="/images/selectMark.png" class="markIcon"></image>
+      </view>
+      <view bindtap="closecoupon" class="block between {{item.isSelect ? 'couponOn' : ''}}" data-index="{{index}}" data-id="{{item.couponId}}" data-money="{{item.couponMoney}}" wx:for="{{coupons}}" wx:key="{{couponId}}">
+        <view>
+          <view>
+            <text class="unit">{{item.unit}}</text>
+            <text class="couponMoney">{{item.couponMoney}}</text>
+            <text class="couponType">{{item.couponType}}</text>
+          </view>
+          <view class="validateDate">
+            有效期至{{item.validateDate}}
+          </view>
+        </view>
+        <view style="display:flex;align-items:center">
+          <image wx:if="{{item.isSelect}}" mode="aspectFit" src="/images/selectMark.png" class="markIcon"></image>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

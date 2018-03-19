@@ -1,0 +1,40 @@
+<view class="coupon">
+  <view class="couponIterm">
+    <view class="info">
+      <view class="intruduce">
+        <view class="couponInfo">
+          <text class="yuan">¥</text>
+          <text class="price">30</text>
+          <text class="name">优惠券</text>
+        </view>
+        <view class="ps">一次性抵用，不可叠加、不找零</view>
+      </view>
+      <view class="data">
+        有效期至2018-04-15
+      </view>
+    </view>
+    <image class="line" src="/images/line.png"></image>
+    <view class="handle">
+      <text class="toHandle">立即使用</text>
+    </view>
+  </view>
+  <view class="couponIterm">
+    <view class="info">
+      <view class="intruduce">
+        <view class="couponInfo {{isDue ? 'due' : ''}}">
+          <text class="yuan {{isDue ? 'due' : ''}}">¥</text>
+          <text class="price {{isDue ? 'due' : ''}}">30</text>
+          <text class="name">优惠券</text>
+        </view>
+        <view class="ps {{isDue ? 'due' : ''}}">一次性抵用，不可叠加、不找零</view>
+      </view>
+      <view class="data {{isDue ? 'due' : ''}}">
+        有效期至2018-04-15
+      </view>
+    </view>
+    <image class="line" src="/images/line.png"></image>
+    <view class="handle">
+      <text class="toHandle {{isDue ? 'due' : ''}}">{{ isDue? '已过期' : '立即使用' }}</text>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,16 @@
+<view class="about">
+  <image src="/images/sublogo.png" class="logo"></image>
+  <view class="slogan">速保网络</view>
+
+  <view class="introduce">
+    <view class="section">
+      速保网络是一家创新型的移动互联网公司，依托云计算SAAS服务，开发帮助企业迈入移动办公新的应用产品。
+    </view>
+    <view class="section">
+      速保网络致力于帮助企业更好实现内部协同管理，以创新的思维与极致的产品体验助推企业移动化办公，提升内部协同效率。
+    </view>
+  </view>
+</view>
+<view class="btn">
+  手机号解绑
+</view>

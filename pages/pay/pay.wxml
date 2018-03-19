@@ -1,0 +1,42 @@
+<view class="tableTitle title">候选人信息</view>
+<view class="table">
+  <view class="table">
+    <view class="tr2 flex">
+      <text class="formItemKey">姓名</text>
+      <input class="formItemValue" bindinput="checkName" placeholder="请输入姓名" placeholder-class="placeholder" value="{{name}}"/>
+    </view>
+    <view class="tr2 flex">
+      <text class="formItemKey">手机号</text>
+      <input class="formItemValue" bindinput="checkMobile" type="number" name="phone" placeholder="请输入手机号" placeholder-class="placeholder" value="{{phone}}"/>
+    </view>
+  </view>
+</view>
+
+<view class="tableTitle title">认证信息</view>
+<view class="table">
+  <view class="tr between info">
+    <view class="checks">
+      <text  wx:for="{{checks}}" wx:key="{{index}}" class="checksItem">{{item}}</text>
+    </view>
+    <view class="totalPrice">¥ {{totalPrice}}</view>
+  </view>
+  <view class="tr between" bindtap="selectCoupon">
+    <view>优惠券</view>
+    <view>
+      <text class="useCoupon" wx:if="{{!isUseCoupon}}">请选择优惠券</text>
+      <text wx:else class=" {{isUseCoupon ? 'slatOn' : ''}}">-¥{{couponMoney}}</text>
+      <image src="/images/rdrop.png" class="ricon"></image>
+    </view>
+  </view>
+  <view class="tr between">
+    <view>需支付</view>
+    <view class="realTotalPrice"> 
+      ¥ {{realTotalPrice}}
+    </view>
+  </view>
+</view>
+
+<button class="{{canISubmit ? 'submitBtn btn' : 'btn'}}" bindtap="formSubmit">支付并发起认证</button>
+<block wx:if="{{isShowCoupon}}">
+  <Select is-use-coupon="{{isUseCoupon}}" is-select="{{isSelect}}" coupons="{{coupons}}" bind:closecoupon="closeCouponBlock"></Select>
+</block>

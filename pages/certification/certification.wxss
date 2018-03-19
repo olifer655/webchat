@@ -1,0 +1,4 @@
+.item {
+  padding: 21rpx 21rpx 21rpx 0;
+  font-size: 32rpx;
+}

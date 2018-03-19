@@ -1,0 +1,21 @@
+<view class="pageDetails">
+  <view wx:for="{{reportDetails}}" wx:key="{{ index }}">
+    <view class="tableTitle title">{{ item.title }}</view>
+    <view wx:if="{{item.title !== '负面信息'}}" class="content">
+      <view wx:for="{{item.lists}}" wx:key="{{ index }}" class="egItem" wx:for-item="data">
+        <view class="egItemKey">{{ data.key }}</view>
+        <view class="egItemValue">{{ data.value }}</view>
+      </view>
+    </view>
+    <view wx:if="{{item.title === '负面信息'}}" class="content">
+      <view wx:for="{{item.lists}}" wx:key="{{ index }}" class="negativeItem" wx:for-item="data">
+        <view>{{ data.key }}</view>
+        <view style="color: {{(data.value === '是' ? '#FF8100' : '#464646')}}">{{ data.value }}</view>
+      </view>
+    </view>
+  </view> 
+</view> 
+
+
+
+

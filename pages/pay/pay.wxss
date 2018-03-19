@@ -1,0 +1,90 @@
+.title {
+  font-size: 26rpx;
+  color: #999;
+}
+.bills {
+  margin-top: 29rpx;
+  color: #464646;
+}
+.up {
+  margin-bottom: 26rpx;
+  font-weight: 500;
+}
+.name {
+  color: #464646;
+  font-size: 34rpx;
+}
+.price {
+  color: #FF7700;
+  font-size: 36rpx;
+}
+.date {
+  color: #999999;
+  font-size: 28rpx;
+}
+.refunding {
+  color: #35C8D0;
+  font-size: 28rpx;
+}
+.refunded {
+  color: #999;
+  font-size: 28rpx;
+}
+.btn {
+  background-color: #D2D7DB;
+  border-radius: 10rpx;
+  line-height: 84rpx;
+  text-align: center;
+  font-size: 38rpx;
+  color: #FFF;
+  width: 690rpx;
+  margin: 133rpx auto 0;
+}
+
+.submitBtn {
+  background: #238DE5;
+}
+.check {
+  font-size: 28rpx;
+  color: #00A2FF;
+  display: flex;
+  align-items:center;
+}
+.ricon {
+  display: inline-block;
+  width: 16rpx;
+  height: 26rpx;
+  margin-left: 20rpx;
+} 
+.info {
+  position: relative;
+}
+.checks {
+  width: 590rpx;
+}
+.checksItem {
+  color:#464646;
+  font-size: 32rpx;
+  line-height: 45rpx;
+  width: 50%;
+  display: inline-block;
+}
+.totalPrice {
+  color:#464646;
+  font-size: 32rpx;
+  position: absolute;
+  bottom: 30rpx;
+  right: 30rpx;
+}
+.useCoupon {
+  color: #999999;
+  font-size: 28rpx;
+}
+.realTotalPrice {
+  color:#464646;
+  font-size: 42rpx;
+  font-weight: 500;
+}
+.slatOn {
+  color: #FF7700;
+}

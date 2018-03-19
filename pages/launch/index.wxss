@@ -1,0 +1,81 @@
+.btn {
+  background-color: #238DE5;
+  border-radius: 10rpx;
+  line-height: 84rpx;
+  text-align: center;
+  font-size: 38rpx;
+  color: #FFF;
+  width: 690rpx;
+  margin: 50rpx auto 0;
+}
+.item {
+  width: 50%;
+  height: 165rpx;
+  color: #464646;
+  position: relative;
+  background-color: #FFFFFF;
+  border: 1rpx solid #CDCDCD;
+  border-radius: 8px;
+  margin: 25rpx 30rpx 0;
+  padding: 20rpx 0 0 20rpx;
+  box-shadow: 0 2rpx 10rpx 0 #E2E2E2; 
+}
+.itemOn {
+  border: 1rpx solid #62b1ef;
+  background-color: #C1E8FF;
+}
+.item:last-child {
+  margin-left: 0;
+}
+.title {
+  font-size:30rpx;
+}
+.ps {
+  color: #9A9A9A;
+  font-size: 24rpx;
+  width: 200rpx;
+}
+.icon {
+  color: #FF6060;
+}
+.mark {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 150rpx;
+  height: 55rpx;
+  background-color: #E2E2E2;
+  border-radius: 29rpx 0 8rpx 0;
+  text-align: right;
+  color: #fff;
+}
+.markOn {
+  background-color: #00A2FF;
+}
+.bottom {
+  margin-bottom: 50rpx;
+}
+.markIcon {
+  display: inline-block;
+  height: 34rpx;
+  width: 34rpx;
+  padding: 6rpx 10rpx 0 0;
+}
+.price {
+  padding-right:10rpx;
+}
+.subBtn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 35rpx;
+  font-size: 20rpx;
+  color: #00A2FF;
+}
+.line {
+  height: 20rpx;
+  width: 2rpx;
+  background-color: #00A2FF;
+  margin:0 20rpx;
+}

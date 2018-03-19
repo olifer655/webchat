@@ -1,0 +1,85 @@
+<view class="table">
+  <view class="flex">
+    <view class="item itemOn">
+      <view class="title">身份证认证</view>
+      <view class="ps">
+        <text class="icon"> * </text> 必选
+      </view>
+      <view class="mark markOn">
+        <image mode="aspectFit" src="/images/checkMark.png" class="markIcon"></image>
+        <text class="price">5元</text>
+      </view>
+    </view>
+    <view bindtap="toChoice" data-block="isMobile" class="item {{checks.isMobile ? 'itemOn' : ''}}">
+      <view class="title">手机号认证</view>
+      <view class="mark {{checks.isMobile ? 'markOn' : ''}}">
+        <image mode="aspectFit" src="/images/checkMark.png" class="markIcon"></image>
+        <text class="price">5元</text>
+      </view>
+    </view>
+  </view>
+  <view class="flex">
+    <view bindtap="toChoice" data-block="isNegativeInfo" class="item {{checks.isNegativeInfo ? 'itemOn' : ''}}">
+      <view class="title">负面信息查询</view>
+      <view class="mark {{checks.isNegativeInfo ? 'markOn' : ''}}">
+        <image wx:if="{{checks.isNegativeInfo}}" mode="aspectFit" src="/images/checkMark.png" class="markIcon"></image>
+        <text class="price">5元</text>
+      </view>
+    </view>
+    <view bindtap="toChoice" data-block="isEducation" class="item {{checks.isEducation ? 'itemOn' : ''}}">
+      <view class="title">学历认证</view>
+      <view class="ps">
+        <text class="icon"> * </text> 仅支持国内学历认证
+      </view>
+      <view class="mark {{checks.isEducation ? 'markOn' : ''}}">
+        <image wx:if="{{checks.isEducation}}" mode="aspectFit" src="/images/checkMark.png" class="markIcon"></image>
+        <text class="price">5元</text>
+      </view>
+    </view>
+  </view>
+  <view class="flex">
+    <view bindtap="toChoice" data-block="isHealth" class="item {{checks.isHealth ? 'itemOn' : ''}}">
+      <view class="title">健康证查询</view>
+      <view class="ps">
+        <text class="icon"> * </text> 仅支持北京、上海地区查询
+      </view>
+      <view class="mark {{checks.isHealth ? 'markOn' : ''}}">
+        <image wx:if="{{checks.isHealth}}" mode="aspectFit" src="/images/checkMark.png" class="markIcon"></image>
+        <text class="price">5元</text>
+      </view>
+    </view>
+    <view bindtap="toChoice" data-block="isProfessional" class="item {{checks.isProfessional ? 'itemOn' : ''}}">
+      <view class="title">职业资格证查询</view>
+      <view class="mark {{checks.isProfessional ? 'markOn' : ''}}">
+        <image wx:if="{{checks.isProfessional}}" mode="aspectFit" src="/images/checkMark.png" class="markIcon"></image>
+        <text class="price">10元</text>
+      </view>
+    </view>
+  </view>
+  <view class="flex bottom">
+    <view bindtap="toChoice" data-block="isProvidentFund" class="item {{checks.isProvidentFund ? 'itemOn' : ''}}">
+      <view class="title">公积金查询</view>
+      <view class="mark {{checks.isProvidentFund ? 'markOn' : ''}}">
+        <image wx:if="{{checks.isProvidentFund}}" mode="aspectFit" src="/images/checkMark.png" class="markIcon"></image>
+        <text class="price">10元</text>
+      </view>
+    </view>
+    <view bindtap="toChoice" data-block="isSocialSecurity" class="item {{checks.isSocialSecurity ? 'itemOn' : ''}}">
+      <view class="title">社保查询</view>
+      <view class="mark {{checks.isSocialSecurity ? 'markOn' : ''}}">
+        <image wx:if="{{checks.isSocialSecurity}}" mode="aspectFit" src="/images/checkMark.png" class="markIcon"></image>
+        <text class="price">10元</text>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="btn" bindtap="toNext">
+  下一步
+</view>
+<view class="subBtn">
+  <block>
+    <view bindtap="toJump" data-path="help">使用帮助</view>
+    <view class="line"></view>
+    <view bindtap="toJump" data-path="example">报告示例</view>
+  </block>
+</view>

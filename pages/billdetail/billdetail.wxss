@@ -1,0 +1,38 @@
+.info {
+  font-size: 32rpx;
+  color: #464646;
+}
+.candidateT {
+  padding-left: 30rpx;
+  padding-bottom:30rpx;
+  border-top:0;
+}
+.detailT {
+  padding: 20rpx 20rpx 20rpx 0;
+}
+.title {
+  font-size: 26rpx;
+  color: #999;
+  font-size:32rpx;
+}
+.realPay {
+  font-size: 42rpx;
+  font-weight: 500;
+}
+.real {
+  border-bottom: 1rpx solid #e3e3e3;
+  padding: 30rpx;
+  background-color: #fff;
+  font-size:32rpx;
+}
+.ps {
+  font-size: 30rpx;
+  color: #999;
+  line-height:50rpx;
+}
+.refund {
+  font-size: 32rpx;
+}
+.sub {
+  color: #999;
+}
