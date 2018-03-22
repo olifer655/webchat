@@ -66,8 +66,8 @@
   color:#464646;
   font-size: 32rpx;
   line-height: 45rpx;
-  width: 50%;
   display: inline-block;
+  white-space: nowrap;
 }
 .totalPrice {
   color:#464646;

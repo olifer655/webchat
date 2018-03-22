@@ -1,49 +1,37 @@
 .tip {
-  color: #fff;
-  font-size: 25.34rpx;
+  font-size: 30rpx;
   margin: 0;
   text-align: center;
   padding-top: 19rpx;
   padding-bottom: 17rpx;
-  background-color: #2F7DCD;
 }
-.table {
-  position: relative;
-  background-color: #fff;
-  border-bottom: 1rpx solid #E3E3E3;
-  font-size: 30rpx;
-  color: #464646;
+.tiping {
+  color: #00B4BE;
+  background-color: #D2FFFF;
 }
-.tr {
-  margin-left: 30rpx;
-  padding: 25rpx 10rpx 25rpx 0;
-  border-bottom: 1rpx solid #E3E3E3;
-  display: flex;
-  position: relative;
-}
-.tr:last-child {
-  border-bottom: 0;
+.tiped {
+  color: #FF7700;
+  background-color: #FFEBD7;
 }
 .label {
   flex: 1;
+  font-size: 32rpx;
+  color: #999;
 }
 .value {
   flex: 4;
-  border: none;
-  font-size: 30rpx;
-  letter-spacing: 0;
-  display: block;
-  width: 59rpx;
-  box-sizing: border-box;
-  color: #9B9B9B;
+  font-size: 32rpx;
+  color: #464646;
 }
-.key {
-  flex: 3;
+.resourcesItem {
+  line-height: 55rpx;
+  width: 50%;
+  display: inline-block;
 }
 .checkBill {
   font-size: 26rpx;
-  color: #467DB9;
-  margin: 21rpx 30rpx 30rpx;
+  color: #00A2FF;
+  margin: 60rpx 30rpx 30rpx;
   text-align: center;
 }
 .foot_bar {
@@ -53,15 +41,15 @@
   width: 100%; 
 }
 .ps {
-  color: #9B9B9B;
-  font-size: 27rpx;
+  color: #999;
+  font-size: 26rpx;
   text-align: center;
   padding-bottom: 20rpx;
 }
 .btn {
   text-align: center;
   font-size: 32rpx;
-  color: #4677AE;
+  color: #00A2FF;
   padding-top: 33rpx;
   height: 80rpx;
   background-color: #fff;

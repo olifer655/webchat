@@ -1,26 +1,11 @@
 import API from '../../utils/api.js';
-const coupons = [
-  {
-    couponId: 123,
-    couponType: '优惠券',
-    couponMoney: '30',
-    unit: '¥',
-    couponDes: '',
-    validateDate: '2018-12-21'
-  }, {
-    couponId: 124,
-    couponType: '优惠券',
-    couponMoney: '30',
-    unit: '¥',
-    couponDes: '',
-    validateDate: '2018-12-21'
-  }
-]
+
 Page({
   data: {
-    checks: ['身份证信息认证'],
+    checks: [],
+    idLists: [],
     totalPrice: '',
-    coupons: coupons,
+    coupons: [],
     realTotalPrice: '',
     canISubmit: false,
     isUseCoupon: false,
@@ -29,15 +14,6 @@ Page({
     couponId: 0,
     isSelect: false
   },
-  map: {
-    isMobile: '手机号实名认证',
-    isNegativeInfo: '负面信息认证',
-    isEducation: '学历信息认证',
-    isHealth: '健康证认证',
-    isProfessional: '职业资格证认证',
-    isProvidentFund: '公积金信息认证',
-    isSocialSecurity: '社保信息认证'
-  },
   onLoad: function() {
     this.init()
   },
@@ -45,13 +21,16 @@ Page({
     let that = this
     wx.getStorage({
       key: 'CHECKS',
-      success: function(res) {
+      success: function(res) { 
+        let length = res.data.length
         let data = res.data
-        data.map((item) => {
-          that.data.checks.push(that.map[item])	
+        data.map((item, index) => {
+          if(index != length -1) {
+            data[index] = item + '、'
+          }
         })
         that.setData({
-          checks: that.data.checks
+          checks: data
         })
       } 
     })
@@ -65,12 +44,40 @@ Page({
         })
       } 
     })
+    wx.getStorage({
+      key: 'ID_LISTS',
+      success: function(res) {
+        that.data.idLists = res.data
+      } 
+    })
 
   },
   selectCoupon: function() {
-    this.setData({
-      isShowCoupon: true
-    })
+    // 如果已经取过优惠券信息，那么再点击时，不会去请求优惠券接口
+    if(!this.data.coupons.length) {
+      API.request({
+        'url': `${API.host}/v2/coupon/list`,
+        method: 'GET'
+      }, res => {
+        this.data.coupons = res.coupons
+       
+        this.setData({
+          coupons: this.data.coupons,
+          isShowCoupon: true
+        })
+      }, error => {
+        wx.showToast({
+          title: error.errorMsg,
+          icon: 'none',
+          duration: 2000
+        })
+      })
+    } else {
+      this.setData({
+        isShowCoupon: true
+      })
+    }
+    
   },
   closeCouponBlock: function(eventDetail) {
     let isCancel = eventDetail.detail.isCancel
@@ -85,12 +92,12 @@ Page({
     let realTotalPrice = this.data.realTotalPrice
     let totalPrice = this.data.totalPrice
     let couponMoney = eventDetail.detail.couponMoney
+    let coupons = eventDetail.detail.coupons
+    this.data.coupons = coupons
 
     if (isUseCoupon) {  
-      let coupons = eventDetail.detail.coupons
-      
       this.data.couponId = eventDetail.detail.couponId
-      couponMoney = parseInt(totalPrice) > parseInt(couponMoney)? couponMoney : totalPrice
+      couponMoney = parseInt(totalPrice) > parseInt(couponMoney) ? couponMoney : totalPrice
       realTotalPrice = totalPrice - couponMoney > 0 ? totalPrice - couponMoney : 0
   
       this.setData({
@@ -102,7 +109,7 @@ Page({
         isSelect,
       }) 
     } else {
-      let coupons = eventDetail.detail.coupons
+      this.data.couponId = 0
       let obj = {
         isShowCoupon: false,
         isUseCoupon: false,
@@ -112,7 +119,6 @@ Page({
       if (isSelect) {
         obj.isSelect = isSelect
       } 
-      console.log(obj)
       this.setData(obj)
     }
     
@@ -142,4 +148,45 @@ Page({
       })
     } 
   },
+  formSubmit: function() {
+    let that = this
+    let data = this.data
+    
+    let params = {
+      respondentName: data.name,
+      respondentPhone: data.phone,
+      items: data.idLists.toString()
+    }
+    if (data.couponId) {
+      params.couponId = parseInt(data.couponId)
+    }
+    console.log(params)
+    
+    API.request({
+      'url': `${API.host}/v2/survey/order/request`,
+      data: params
+    }, res => {
+      let wxData = res.wxPayData
+      wx.requestPayment({
+        timestamp: wxData.timeStamp,
+        nonceStr: wxData.nonceStr,
+        package: wxData.packageStr,
+        signType: wxData.signType,
+        paySign: wxData.paySign,
+        fail: err => {
+          wx.showToast({
+            title: '支付失败',
+            icon: 'none',
+            duration: 2000
+          })
+        }
+     })
+    }, error => {
+      wx.showToast({
+        title: error.errorMsg,
+        icon: 'none',
+        duration: 2000
+      })
+    })
+  }
 })

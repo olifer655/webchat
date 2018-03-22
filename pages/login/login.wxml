@@ -11,8 +11,7 @@
         <image class="icon" src="/images/safe.png" background-size="cover" mode="aspectFit"></image>
         <input name="code" bindinput="getCode" type="number" placeholder-class="placeholder" placeholder="输入验证码"/>
       </view>
-      <text wx:if="{{!isGetingMsg}}" class="codeBtn getCode" bindtap="countdown" type="number">{{ msg }}</text>
-      <text wx:else class="codeBtn getCodeing" type="number">{{ msg }}</text>
+      <text class="codeBtn {{isGetingMsg ? 'getCodeing' : 'getCode'}}" bindtap="sendmessg" type="number">{{ msg }}</text>
     </view>
     <checkbox-group bindchange="getIsAgree" name="checkbox">
       <label class="checkbox">

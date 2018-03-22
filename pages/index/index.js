@@ -1,110 +1,38 @@
 const app = getApp()
 
-const waitingReportLists = [
+const unReportLists = [
   {
-    id: 0,
-    respondentsName: '张大宝',
-    respondentsPhoneNo: '13116710000',
-    createTime: '01-04 13:45',
+    recordId: 0,
+    respondentName: '张大宝',
+    respondentPhone: '13116710000',
+    surveyTime: '01-04 13:45',
     status: '0'
   }, {
-    id: 1,
-    respondentsName: '张小宝',
-    respondentsPhoneNo: '13116710000',
-    createTime: '01-04 13:45',
+    recordId: 1,
+    respondentName: '张小宝',
+    respondentPhone: '13116710000',
+    surveyTime: '01-04 13:45',
     status: '2'
   }, {
-    id: 2,
-    respondentsName: '张大宝',
-    respondentsPhoneNo: '13116710000',
-    createTime: '01-04 13:45',
+    recordId: 2,
+    respondentName: '张大宝',
+    respondentPhone: '13116710000',
+    surveyTime: '01-04 13:45',
     status: '2'
   }
 ];
-const newReportLists = [
-  {
-    id: 3,
-    respondentsName: '张大宝',
-    respondentsPhoneNo: '13116710000',
-    createTime: '01-04 13:45',
-    status: '3'
-  }, {
-    id: 4,
-    respondentsName: '张大宝张大宝张大宝张大宝张大宝张大宝',
-    respondentsPhoneNo: '13116710000',
-    createTime: '01-04 13:45',
-    status: '4'
-  }, {
-    id: 5,
-    respondentsName: '张大宝',
-    respondentsPhoneNo: '13116710000',
-    createTime: '01-04 13:45',
-    status: '6'
-  },{
-    id: 6,
-    respondentsName: '张大宝张大宝张大宝张大宝张大宝张大宝',
-    respondentsPhoneNo: '13116710000',
-    createTime: '01-04 13:45',
-    status: '2'
-  }, {
-    id: 7,
-    respondentsName: '张大宝张大宝张大宝张大宝张大宝张大宝',
-    respondentsPhoneNo: '13116710000',
-    createTime: '01-04 13:45',
-    status: '2'
-  }
-
-];
-
-const historyLists = [
-  {
-    id: 3,
-    respondentsName: '张大宝',
-    respondentsPhoneNo: '13116710000',
-    createTime: '01-04 13:45',
-    status: '0'
-  }, {
-    id: 8,
-    respondentsName: '张大宝张大宝张大宝张大宝张大宝张大宝',
-    respondentsPhoneNo: '13116710000',
-    createTime: '01-04 13:45',
-    status: '1'
-  }, {
-    id: 4,
-    respondentsName: '张大宝张大宝张大宝张大宝张大宝张大宝',
-    respondentsPhoneNo: '13116710000',
-    createTime: '01-04 13:45',
-    status: '2'
-  }, {
-    id: 5,
-    respondentsName: '张大宝',
-    respondentsPhoneNo: '13116710000',
-    createTime: '01-04 13:45',
-    status: '3'
-  },{
-    id: 6,
-    respondentsName: '张大宝张大宝张大宝张大宝张大宝张大宝',
-    respondentsPhoneNo: '13116710000',
-    createTime: '01-04 13:45',
-    status: '4'
-  }, {
-    id: 7,
-    respondentsName: '张大宝张大宝张大宝张大宝张大宝张大宝',
-    respondentsPhoneNo: '13116710000',
-    createTime: '01-04 13:45',
-    status: '6'
-  }
-]
 
 import API from '../../utils/api.js';
+import UTIL from '../../utils/util.js';
 
 Page({
   data: {
     hasUserInfo: false,
+    hasReport: false,
     currentTab: 0,  
     newReportLists: [],
-    waitingReportLists: [],
-    historyLists: historyLists,
+    unReportLists: [],
+    historyLists: [],
     winHeight: 0
   },
   params: {
@@ -112,16 +40,14 @@ Page({
     pageSize: 10
   },
   onLoad: function () {
-    let data = this.data;
-    let newRLength = data.newReportLists.length
-    let waitingRLength = data.waitingReportLists.length
-    let historyRLength = data.historyLists.length
-    
-    this.getSwipeHeight()
     this.init()
-    if(!newRLength && waitingRLength && historyRLength) {
-      
-    }
+    this.getSwipeHeight()
+  },
+  loaderMore: function(e) {
+    console.log(e)
+  },
+  onReachBottom: function(e) {
+    console.log(e)
   },
   getSwipeHeight: function() {
     let that = this
@@ -135,51 +61,47 @@ Page({
     });  
   },
   getReportLists: function() {
-    this.getNewReportLists()
-    this.getWaitingReportLists()
+    this.getPendingReportLists()
     this.getInitHistoryReportLists()
   },
-  getNewReportLists: function() {
+  getPendingReportLists: function() {
+    let that = this
+
     API.request({
-      url: `${API.host}serge/qiyewx/h5/investigator/listUnreadReport`,
+      url: `${API.host}/v2/report/invest/do/list`,
+      method: 'GET'
     }, res => {
-      this.newReportLists = []
-    }, err => {
-      this.newReportLists = []
-      console.log(err)
-    })
-  },
-  getWaitingReportLists: function() {
-    API.request({
-      url: `${API.host}serge/qiyewx/h5/investigator/listUnreadReport`,
-    }, res => {
-      this.waitingReportLists = []
-      this.setData({
-        waitingReportLists: waitingReportLists
+      that.newReportLists = res.newReports || [];
+      that.unReportLists = res.unReports || [];
+      
+      that.setData({
+        newReportLists: that.newReportLists,
+        unReportLists: that.unReportLists
       })
     }, err => {
-      this.waitingReportLists = []
-      console.log(err)
+      wx.showToast({
+        title: err.errorMsg,
+        icon: 'none',
+        duration: 2000
+      })
     })
   },
   getInitHistoryReportLists: function() {
     API.request({
-      url: `${API.host}serge/qiyewx/h5/investigator/listUnreadReport`,
+      url: `${API.host}/v2/report/invest/history/list?pageNo=${this.params.pageNo}&pageSize=${this.params.pageSize}`,
+      method: 'GET'
     }, res => {
-      this.historyLists = []
+      this.data.historyLists = res.reports || []
       this.setData({
-        historyLists: historyLists
+        historyLists: this.data.historyLists
       })
-    }, err => {
-      this.historyLists = []
-      console.log(err)
+    }, error => {
+      wx.showToast({
+        title: error.errorMsg,
+        icon: 'none',
+        duration: 2000
+      })
     })
-  },
-
-  //滑动切换tab  
-  bindChange: function( e ) { 
-    let that = this
-    that.setData({ currentTab: e.detail.current });  
   },  
   //点击tab切换
   swichNav: function( e ) {  
@@ -193,19 +115,31 @@ Page({
       })  
     }  
   },
+  isLogin() {
+    API.request({
+      url: `${API.host}/v2/user/invest/info`,
+      method: 'GET'
+    }, res => {
+      this.data.hasUserInfo = true
 
-  init: function() {    
-    // 是否登陆的接口
-    let hasUserInfo = true
-    if (!hasUserInfo) {
+      if(res.hasReport) {
+        this.data.hasReport = true
+      } else {
+        this.data.hasReport = false
+      }
+      this.setData({
+        hasUserInfo: this.data.hasUserInfo,
+        hasReport: this.data.hasReport
+      })
+    }, error => {
       wx.redirectTo({
         url: '../login/login'
       })
-    } else {
-      this.getReportLists()
-      this.setData({
-        hasUserInfo: true
-      })
-    }
+    })
+  },
+  init: function() {  
+    wx.login({})  
+    this.isLogin()
+    this.getReportLists()
   }
 })

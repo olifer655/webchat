@@ -34,7 +34,7 @@
     }, {
       "pagePath": "pages/launch/index",
       "text": "发起背调",
-      "iconPath": "./images/lanch1.png",
+      "iconPath": "./images/lanch.png",
       "selectedIconPath": "./images/lanch.png"
     }, {
       "pagePath": "pages/profile/profile",

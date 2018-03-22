@@ -20,6 +20,7 @@
   overflow: hidden;
   white-space: nowrap;
   width: 400rpx;
+  text-overflow:ellipsis;
 }
 .name {
   display: inline-block;

@@ -1,36 +1,62 @@
 // mock 
 const candidateInfo = {
-  name: '占大半',
-  mobile: '13116715680',
-  status: '1'
+  resources: ['身份信息认证', '学历认证'],
+  respondentName: '张三',
+  respondentPhone: '13116715680',
+  status: '8'
 }
+
+// 0:待授权 、4:生成中、 6、生成失败  8、终止背调 9、完善信息中
 import API from '../../utils/api.js';
 
 Page({
   data: {
-    candidateInfo: candidateInfo,
-    statusContent: {
+    candidateInfo: [],
+    statusFilter: {
       '0': '等待候选人授权',
-      '4': '等待候选人完善信息'
+      '4': '报告生成中，请耐心等待',
+      '6': '报告生成失败',
+      '8': '背调已终止',
+      '9': '等待候选人完善信息',
+      '100': '报告范例'
     },
     isRefund: false,
     userId: ''
   },
-  onLoad: function(options){
+
+  onLoad: function(options){  
+    // test start
+    options.id = 7644087005442048
+    // test end  
     this.data.userId = options.id
-    // this.getCandidateInfo(this.data.userId)
+    this.getCandidateInfo(this.data.userId)
   },
   getCandidateInfo: function(id) {
     API.request({
-      url: `${API.host}serge/qiyewx/h5/investigator/listUnreadReport`,
+      url: `${API.host}/v2/survey/info/${this.data.userId}`,
+      method: 'GET'
     }, res => {
-      
-    }, err => {
+      // test start
+      res = candidateInfo
+      // test end
 
+      this.data.candidateInfo = res
+      console.log(this.data.candidateInfo)
+      this.setData({
+        candidateInfo: this.data.candidateInfo
+      })
+    }, err => {
+      wx.showToast({
+        title: err.errorMsg,
+        icon: 'none',
+        duration: 2000
+      })
     })
   },
   toJump: function() {
-
+    wx.navigateTo({
+      url: `../../pages/billdetail/billdetail?id=${this.data.userId}`
+    })
   },
   onUnload: function(){
     console.log('xie')
@@ -57,5 +83,4 @@ Page({
       }
     })
   }
-  
 })

@@ -2,7 +2,7 @@
   <view class="menuIterm" bindtap="toJump">
     <view class="userinfo">
       <image class="avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
-      <text class="mobile">186****7678</text>
+      <text class="mobile">{{phone}}</text>
       <text class="certification" wx:if="{{isCertification}}">已认证</text>
     </view>
     <view class="check">

@@ -12,12 +12,12 @@
       <view bindtap="closecoupon" class="block between {{item.isSelect ? 'couponOn' : ''}}" data-index="{{index}}" data-id="{{item.couponId}}" data-money="{{item.couponMoney}}" wx:for="{{coupons}}" wx:key="{{couponId}}">
         <view>
           <view>
-            <text class="unit">{{item.unit}}</text>
+            <text class="unit">¥</text>
             <text class="couponMoney">{{item.couponMoney}}</text>
-            <text class="couponType">{{item.couponType}}</text>
+            <text class="couponType">{{couponTypeFilter[item.couponType]}}</text>
           </view>
           <view class="validateDate">
-            有效期至{{item.validateDate}}
+            有效期至{{item.expireTime}}
           </view>
         </view>
         <view style="display:flex;align-items:center">

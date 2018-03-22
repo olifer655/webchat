@@ -13,6 +13,11 @@ Component({
       value: ''
     }
   },
+  data: {
+    couponTypeFilter: {
+      'full_discount': '优惠券'
+    }
+  },
   methods: {
     closecoupon: function(e) {
       let indexMark = e.currentTarget.dataset.index
@@ -25,7 +30,7 @@ Component({
       } else if(indexMark === 'no') {
         let coupons = this.properties.coupons
 
-        coupons.map(item => {
+        coupons.map((item, index) => {
           item.isSelect = false
         })
 
@@ -62,12 +67,8 @@ Component({
       let eventOption = {
         composed: true
       }
-      console.log(eventDetail)
   
       this.triggerEvent('closecoupon', eventDetail, eventOption)
     },
-  },
-  ready: function() {
-    console.log(this.properties.coupons)
   }
 })

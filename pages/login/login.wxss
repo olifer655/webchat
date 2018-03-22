@@ -37,6 +37,7 @@
 
 .inputCode {
   display: flex;
+  width: 60%;
 }
 
 .codeBtn {
@@ -52,7 +53,6 @@
 .getCode {
   color: #238DE5;
   border: 1rpx solid #238DE5;
-  width: 140rpx;
 }
 
 .getCodeing {
