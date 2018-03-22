@@ -1,26 +1,5 @@
 const app = getApp()
-
-const unReportLists = [
-  {
-    recordId: 0,
-    respondentName: '张大宝',
-    respondentPhone: '13116710000',
-    surveyTime: '01-04 13:45',
-    status: '0'
-  }, {
-    recordId: 1,
-    respondentName: '张小宝',
-    respondentPhone: '13116710000',
-    surveyTime: '01-04 13:45',
-    status: '2'
-  }, {
-    recordId: 2,
-    respondentName: '张大宝',
-    respondentPhone: '13116710000',
-    surveyTime: '01-04 13:45',
-    status: '2'
-  }
-];
+var order = ['red', 'yellow', 'blue', 'green', 'red']
 
 import API from '../../utils/api.js';
 import UTIL from '../../utils/util.js';
@@ -40,20 +19,35 @@ Page({
     pageSize: 10
   },
   onLoad: function () {
+    // 发送code给后端
+    wx.login({
+      success: function(res) {
+        if(res.code) {
+          API.request({
+            url: `${API.host}/v1/wechat/small/login`,
+            data: {
+              code: res.code
+            }
+          })
+        }
+      }
+    })
     this.init()
     this.getSwipeHeight()
   },
-  loaderMore: function(e) {
-    console.log(e)
+  switchTab: function(e) {
+    this.setData({
+      currentTab:e.detail.current
+    });
   },
-  onReachBottom: function(e) {
+  loaderMore: function(e) {
     console.log(e)
   },
   getSwipeHeight: function() {
     let that = this
 
     wx.getSystemInfo( {  
-      success: function( res ) {  
+      success: function( res ) { 
         that.setData( {    
           winHeight: res.windowHeight  
         });  

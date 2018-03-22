@@ -1,11 +1,11 @@
 <block wx:if="{{ hasUserInfo }}">
   <block wx:if="{{ hasReport }}">
-    <view class="swiperTab">  
-        <view class="swiperTabIterm {{currentTab == 0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">待处理报告</view>  
-        <view class="swiperTabIterm {{currentTab == 1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">历史报告</view>  
-    </view>  
+    <view class="swiperTab">
+      <view class="swiperTabIterm {{currentTab == 0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">待处理报告</view>  
+      <view class="swiperTabIterm {{currentTab == 1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">历史报告</view>  
+    </view>
       
-    <swiper current="{{ currentTab }}" class="swiperBox" duration="300" style="height:{{ winHeight - 49 }}px">  
+    <swiper-view current="{{ currentTab }}" class="swiperBox" duration="300" bindchange="switchTab" style="height: {{winHeight - 47}}px;">  
         <swiper-item> 
           <block wx:if="{{newReportLists.length}}">
             <view class="title">新报告</view> 
@@ -23,19 +23,23 @@
           </block>
         </swiper-item> 
         <swiper-item>
-          <scroll-view style="width: 100%" scroll-y bindscrolltolower="loaderMore">  
-            <block wx:if="{{ historyLists.length }}">
+          <swiper-view 
+            bindscrolltolower="loaderMore" 
+            style="width: 100%" 
+            scroll-y="true" 
+            bindscrolltolower="loaderMore">  
+            <block scroll-y="true"  wx:if="{{ historyLists.length }}">
               <Reports report-lists="{{ historyLists }}"></Reports>
-            </block>
+            </block>  
             <block wx:else>
               <view class="empty" style="height:{{winHeight - 49}}px">        
                 <image class="emptyImage" src="/images/empty.png" mode="aspectFit"></image>
                 <view class="emptyText">暂时没有历史报告</view>
               </view>
             </block>
-          </scroll-view>  
+          </swiper-view>    
         </swiper-item> 
-    </swiper> 
+    </swiper-view>
   </block>
   <block wx:else>
     <Empty></Empty>

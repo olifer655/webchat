@@ -168,12 +168,13 @@ Page({
     }, res => {
       let wxData = res.wxPayData
       wx.requestPayment({
-        timestamp: wxData.timeStamp,
+        timeStamp: wxData.timeStamp,
         nonceStr: wxData.nonceStr,
         package: wxData.packageStr,
         signType: wxData.signType,
         paySign: wxData.paySign,
         fail: err => {
+          console.log(err)
           wx.showToast({
             title: '支付失败',
             icon: 'none',
