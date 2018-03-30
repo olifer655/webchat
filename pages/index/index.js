@@ -1,5 +1,4 @@
-const app = getApp()
-var order = ['red', 'yellow', 'blue', 'green', 'red']
+const APP = getApp()
 
 import API from '../../utils/api.js';
 import UTIL from '../../utils/util.js';
@@ -12,36 +11,64 @@ Page({
     newReportLists: [],
     unReportLists: [],
     historyLists: [],
-    winHeight: 0
+    winHeight: 0,
+    isLoading: false,
+    loadedComputed: false,
+    flag: false // 防止页面闪烁
   },
   params: {
     pageNo: 1,
-    pageSize: 10
+    pageSize: 20
   },
-  onLoad: function () {
+  onShow: function () {
     // 发送code给后端
-    wx.login({
-      success: function(res) {
-        if(res.code) {
-          API.request({
-            url: `${API.host}/v1/wechat/small/login`,
-            data: {
-              code: res.code
-            }
-          })
-        }
-      }
-    })
     this.init()
-    this.getSwipeHeight()
   },
   switchTab: function(e) {
+    this.getSwipeHeight()
     this.setData({
-      currentTab:e.detail.current
+      currentTab: e.detail.current
     });
   },
-  loaderMore: function(e) {
-    console.log(e)
+  loadMore: function(e) {
+    if (this.data.loadedComputed) return
+    
+    let that = this
+    let pageNo = this.params.pageNo
+    let pageSize = this.params.pageSize * pageNo
+
+    this.setData({
+      isLoading: true
+    })
+
+    API.request({
+      url: `${API.host}/v2/report/invest/history/list?pageNo=${pageNo}&pageSize=${pageSize }`,
+      method: 'GET'
+    }, res => {
+      let setdata = {}
+
+      if(res.reports.length < that.params.pageSize) {
+        that.data.loadedComputed = true
+        setdata.loadedComputed = that.data.loadedComputed
+      }
+      that.data.historyLists.push(...res.reports)
+      that.params.pageNo ++
+
+      setdata.historyLists = this.data.historyLists
+      setdata.isLoading = false
+      
+      that.setData(setdata)
+    }, error => {
+      that.data.isLoading = false
+      that.setData({
+        isLoading: false
+      })
+      wx.showToast({
+        title: error.errorMsg,
+        icon: 'none',
+        duration: 2000
+      })
+    })
   },
   getSwipeHeight: function() {
     let that = this
@@ -56,7 +83,7 @@ Page({
   },
   getReportLists: function() {
     this.getPendingReportLists()
-    this.getInitHistoryReportLists()
+    this.loadMore()
   },
   getPendingReportLists: function() {
     let that = this
@@ -80,23 +107,6 @@ Page({
       })
     })
   },
-  getInitHistoryReportLists: function() {
-    API.request({
-      url: `${API.host}/v2/report/invest/history/list?pageNo=${this.params.pageNo}&pageSize=${this.params.pageSize}`,
-      method: 'GET'
-    }, res => {
-      this.data.historyLists = res.reports || []
-      this.setData({
-        historyLists: this.data.historyLists
-      })
-    }, error => {
-      wx.showToast({
-        title: error.errorMsg,
-        icon: 'none',
-        duration: 2000
-      })
-    })
-  },  
   //点击tab切换
   swichNav: function( e ) {  
     let that = this;  
@@ -122,18 +132,20 @@ Page({
         this.data.hasReport = false
       }
       this.setData({
+        flag: true,
         hasUserInfo: this.data.hasUserInfo,
         hasReport: this.data.hasReport
       })
     }, error => {
-      wx.redirectTo({
-        url: '../login/login'
+      this.setData({
+        flag: true,
       })
+      this.data.hasReport = false
     })
   },
   init: function() {  
-    wx.login({})  
     this.isLogin()
     this.getReportLists()
+    this.getSwipeHeight()
   }
 })

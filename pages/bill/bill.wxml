@@ -1,13 +1,25 @@
-<view class="table bills">
-  <view class="tr" wx:for="{{lists}}" wx:key="id" data-id="{{item.id}}" bindtap="toJump">
-    <view class="between up">
-      <view class="name">候选人-{{item.name}}</view>
-      <view wx:if="{{item.refundStatus === '0'}}" class="price">￥ 35.00</view>
-      <view wx:if="{{item.refundStatus === '1'}}" class="refunding">退款中</view>
-      <view wx:if="{{item.refundStatus === '2'}}" class="refunded">退款成功</view>
-    </view>
-    <view class="date">
-      {{item.date}}
+<scroll-view wx:if="{{lists.length}}" style="height:{{winHeight}}px" bindscrolltolower="loadMore" scroll-y="true">
+  <view class="table bills">
+    <view class="tr" wx:for="{{lists}}" wx:key="recordId" data-id="{{item.recordId}}" bindtap="toJump">
+      <view class="between up">
+        <view class="name">候选人-{{item.respondentName}}</view>
+        <view wx:if="{{item.orderStatus == '3'}}" class="price">￥ {{item.originFee}}</view>
+        <view wx:if="{{item.orderStatus == '-4'}}" class="refunded">退款成功</view>
+        <view wx:if="{{item.orderStatus == '2' || item.orderStatus == '-3'}}" class="refunding">{{item.orderStatus[orderStatusMap]}}</view>
+      </view>
+      <view class="date">
+        {{item.surveyTime}}
+      </view>
     </view>
   </view>
-</view>
+  <view class="loading" wx:if="{{ isLoading || loadedComputed }}">
+    <Loading wx:if="{{!loadedComputed}}"></Loading>
+    <text>{{isLoading ? '加载中...' : '已无更多账单'}}</text>
+  </view>
+</scroll-view>
+<block wx:else>
+  <view class="empty">        
+    <image class="emptyImage" src="/images/empty.png" mode="aspectFit"></image>
+    <view class="emptyText">暂无账单</view>
+  </view>
+</block>

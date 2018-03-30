@@ -1,6 +1,7 @@
 {
   "navigationBarTitleText": "发起认证",
   "usingComponents": {
-    "Select": "./select/select"
+    "Select": "./select/select",
+    "Loading": "../components/loading/loading"
   }
 }

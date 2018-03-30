@@ -1,50 +1,54 @@
-<block wx:if="{{ hasUserInfo }}">
+<block wx:if="{{flag}}">
   <block wx:if="{{ hasReport }}">
     <view class="swiperTab">
       <view class="swiperTabIterm {{currentTab == 0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">待处理报告</view>  
       <view class="swiperTabIterm {{currentTab == 1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">历史报告</view>  
     </view>
-      
-    <swiper-view current="{{ currentTab }}" class="swiperBox" duration="300" bindchange="switchTab" style="height: {{winHeight - 47}}px;">  
-        <swiper-item> 
-          <block wx:if="{{newReportLists.length}}">
-            <view class="title">新报告</view> 
-            <Reports report-lists="{{newReportLists}}"></Reports>
-          </block>
-          <block wx:if="{{unReportLists.length}}">
-            <view class="title">待生成报告</view>
-            <Reports report-lists="{{unReportLists}}"></Reports>
-          </block>
-          <block wx:if="{{!unReportLists.length && !newReportLists.length}}">
-            <view class="empty" style="height:{{winHeight - 49}}px">
+    <swiper current="{{currentTab}}" class="swiperBox" duration="300" bindchange="switchTab" >
+      <swiper-item> 
+        <block wx:if="{{newReportLists.length}}">
+          <view class="title">新报告</view> 
+          <Reports report-lists="{{newReportLists}}"></Reports>
+        </block>
+        <block wx:if="{{unReportLists.length}}">
+          <view class="title">待生成报告</view>
+          <Reports report-lists="{{unReportLists}}"></Reports>
+        </block>
+        <block wx:if="{{!unReportLists.length && !newReportLists.length}}">
+          <view class="empty" style="height:{{winHeight - 49}}px">
+            <image class="emptyImage" src="/images/empty.png" mode="aspectFit"></image>
+            <view class="emptyText">暂时没有待处理报告</view>
+          </view>
+        </block>
+      </swiper-item> 
+      <swiper-item>
+        <scroll-view 
+          bindscrolltolower="loadMore" 
+          style="height:{{winHeight - 49}}px" 
+          scroll-y="true"> 
+          <block wx:if="{{ historyLists.length }}">
+            <Reports report-lists="{{ historyLists }}"></Reports>
+            <view class="loading" wx:if="{{ isLoading || loadedComputed }}">
+              <Loading wx:if="{{!loadedComputed}}"></Loading>
+              <text>{{isLoading ? '加载中...' : '已无更多报告'}}</text>
+            </view>
+          </block>  
+          <block wx:else>
+            <view class="empty" style="height:{{winHeight - 49}}px">        
               <image class="emptyImage" src="/images/empty.png" mode="aspectFit"></image>
-              <view class="emptyText">暂时没有待处理报告</view>
+              <view class="emptyText">暂时没有历史报告</view>
             </view>
           </block>
-        </swiper-item> 
-        <swiper-item>
-          <swiper-view 
-            bindscrolltolower="loaderMore" 
-            style="width: 100%" 
-            scroll-y="true" 
-            bindscrolltolower="loaderMore">  
-            <block scroll-y="true"  wx:if="{{ historyLists.length }}">
-              <Reports report-lists="{{ historyLists }}"></Reports>
-            </block>  
-            <block wx:else>
-              <view class="empty" style="height:{{winHeight - 49}}px">        
-                <image class="emptyImage" src="/images/empty.png" mode="aspectFit"></image>
-                <view class="emptyText">暂时没有历史报告</view>
-              </view>
-            </block>
-          </swiper-view>    
-        </swiper-item> 
-    </swiper-view>
+        </scroll-view>    
+      </swiper-item>
+    </swiper>  
   </block>
-  <block wx:else>
+  <block wx:if="{{ !hasReport }}">
     <Empty></Empty>
   </block>
 </block>
+
+
 
 
 

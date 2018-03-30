@@ -17,8 +17,8 @@
     <label class="checkbox">
       <checkbox checked="{{isAgree}}" value="{{!isAgree ? '1' : '0'}}"/>
       我已阅读并同意
-      <text class="agreement">《平台服务协议》</text>
-    </label>
+     </label>
+    <text class="agreement" bindtap="toJump">《平台服务协议》</text>
   </checkbox-group>
   <button class="{{canISubmit ? 'submitBtn btn' : 'btn'}}" formType="submit">提交认证</button>
 </form>

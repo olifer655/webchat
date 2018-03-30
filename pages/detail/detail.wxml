@@ -1,21 +1,241 @@
 <view class="pageDetails">
-  <view wx:for="{{reportDetails}}" wx:key="{{ index }}">
-    <view class="tableTitle title">{{ item.title }}</view>
-    <view wx:if="{{item.title !== '负面信息'}}" class="content">
-      <view wx:for="{{item.lists}}" wx:key="{{ index }}" class="egItem" wx:for-item="data">
-        <view class="egItemKey">{{ data.key }}</view>
-        <view class="egItemValue">{{ data.value }}</view>
+  <block wx:if="{{details.identityInfo}}">
+    <view class="tableTitle title">身份信息</view>
+    <view class="content">
+      <view class="commonTd">
+        <view class="commonTdKey">姓名</view>
+        <view class="commonTdValue">{{details.identityInfo.name}}</view>
+      </view>
+      <view class="commonTd">
+        <view class="commonTdKey">性别</view>
+        <view class="commonTdValue">{{details.identityInfo.gender}}</view>
+      </view>
+      <view class="commonTd">
+        <view class="commonTdKey">年龄</view>
+        <view class="commonTdValue">{{details.identityInfo.age}}</view>
+      </view>
+        <view class="commonTd">
+        <view class="commonTdKey">身份证号</view>
+        <view class="commonTdValue">{{details.identityInfo.idNo}}</view>
+      </view>
+        <view class="commonTd">
+        <view class="commonTdKey">籍贯</view>
+        <view class="commonTdValue">{{details.identityInfo.birthPlace}}</view>
       </view>
     </view>
-    <view wx:if="{{item.title === '负面信息'}}" class="content">
-      <view wx:for="{{item.lists}}" wx:key="{{ index }}" class="negativeItem" wx:for-item="data">
-        <view>{{ data.key }}</view>
-        <view style="color: {{(data.value === '是' ? '#FF8100' : '#464646')}}">{{ data.value }}</view>
+  </block>
+  
+  <block wx:if="{{details.concatInfo}}">
+    <view class="tableTitle title">联系信息</view>
+    <view class="content">
+      <view class="commonTd">
+        <view class="commonTdKey">实名认证</view>
+        <view class="commonTdValue {{details.concatInfo.certification == '0' ? 'bad' : ''}}">{{details.concatInfo.certification == 0 ? '否' : '是'}}</view>
+      </view>
+      <view class="commonTd">
+        <view class="commonTdKey">手机号</view>
+        <view class="commonTdValue">{{details.concatInfo.phoneNo}}</view>
+      </view>
+      <view class="commonTd">
+        <view class="commonTdKey">状态</view>
+        <view class="commonTdValue">{{details.concatInfo.status}}</view>
+      </view>
+        <view class="commonTd">
+        <view class="commonTdKey">在网时长</view>
+        <view class="commonTdValue">{{details.concatInfo.onlineTime}}</view>
       </view>
     </view>
-  </view> 
+  </block>
+
+  <block wx:if="{{details.educationInfo}}">
+    <view class="tableTitle title">学历信息</view>
+    <view class="content">
+      <view class="commonTd">
+        <view class="commonTdKey">认证结果</view>
+        <view class="commonTdValue {{details.educationInfo.certification == '0' ? 'bad' : ''}}">{{details.educationInfo.certification == '0' ? '不通过' : '通过'}}</view>
+      </view>
+      <view class="commonTd">
+        <view class="commonTdKey">毕业院校</view>
+        <view class="commonTdValue">{{ details.educationInfo.school }}</view>
+      </view>
+      <view class="commonTd">
+        <view class="commonTdKey">最高学历</view>
+        <view class="commonTdValue">{{ details.educationInfo.highestLevel }}</view>
+      </view>
+      <view class="commonTd">
+        <view class="commonTdKey">毕业时间</view>
+        <view class="commonTdValue">{{ details.educationInfo.graduationDate }}</view>
+      </view>
+      <view class="commonTd">
+        <view class="commonTdKey">学习形式</view>
+        <view class="commonTdValue">{{ details.educationInfo.studyFormcheck }}</view>
+      </view>
+      <view class="commonTd">
+        <view class="commonTdKey">结论</view>
+        <view class="commonTdValue">{{details.educationInfo.graduateResult}}</view>
+      </view>
+    </view>
+  </block>
+  
+  <block wx:if="{{details.healthInfo.length}}">
+    <view class="tableTitle title">健康证</view>
+    <view class="contentno">
+      <view wx:for="{{details.healthInfo}}" wx:key="{{index}}" class="block">
+        <view class="subTitle">{{item.area}}</view>
+        <view class="commonTd">
+          <view class="commonTdKey">体检结果</view>
+          <view class="commonTdValue {{item.physicalResult == '0' ? 'bad' : ''}}">{{details.healthInfo.physicalResult == '0' ? '不合格' : '合格'}}</view>
+        </view>
+        <view class="commonTd">
+          <view class="commonTdKey">体检类型</view>
+          <view class="commonTdValue">{{item.physicalType}}</view>
+        </view>
+        <view class="commonTd">
+          <view class="commonTdKey">证件号码</view>
+          <view class="commonTdValue">{{item.cardNo}}</view>
+        </view>
+        <view class="commonTd">
+          <view class="commonTdKey">体检机构</view>
+          <view class="commonTdValue">{{item.compName}}</view>
+        </view>
+        <view class="commonTd">
+          <view class="commonTdKey">体检日期</view>
+          <view class="commonTdValue">{{item.effectiveData}}</view>
+        </view>
+      </view>
+    </view>
+  </block>
+  
+  <block wx:if="{{details.qualificationInfo}}">
+    <view class="tableTitle title">职业资格证</view>
+    <view class="contentno">
+      <view class="block" wx:key="{{index}}" wx:for="{{details.qualificationInfo}}">
+        <view class="subTitle">{{item.occupation}}</view>
+        <view class="commonTd">
+          <view class="commonTdKey">级别</view>
+          <view class="commonTdValue">{{item.level}}</view>
+        </view>
+        <view class="commonTd">
+          <view class="commonTdKey">证书编号</view>
+          <view class="commonTdValue">{{item.certificateId}}</view>
+        </view>
+        <view class="commonTd">
+          <view class="commonTdKey">发证单位</view>
+          <view class="commonTdValue">{{item.issueOrg}}</view>
+        </view>
+        <view class="commonTd">
+          <view class="commonTdKey">发证日期</view>
+          <view class="commonTdValue">{{item.validateDate}}</view>
+        </view>
+      </view>
+    </view>
+  </block>
+  
+  <block wx:if="{{details.insuranceInfo}}">
+    <view class="tableTitle title">社保信息</view>
+    <view class="contentno">
+      <block wx:if="{{!details.insuranceInfo.certification}}">
+        <view class="block">
+          <view class="commonTd">
+            <view class="commonTdKey">缴存城市</view>
+            <view class="commonTdValue">{{details.insuranceInfo.accountInfo.city}}</view>
+          </view>
+          <view class="commonTd">
+            <view class="commonTdKey">账户状态</view>
+            <view class="commonTdValue {{details.insuranceInfo.accountInfo.status == '0' ? 'bad' : ''}}">{{details.insuranceInfo.accountInfo.status == '0' ? '正常' : '停缴'}}</view>
+          </view>
+        </view> 
+        <block wx:if="{{details.insuranceInfo.depositUnits.length}}">
+          <view class="block" wx:for="{{details.insuranceInfo.depositUnits}}" wx:key="{{index}}">  
+            <view class="commonTd">
+              <view class="commonTdKey">缴存单位</view>
+              <view class="commonTdValue">{{item.name}}</view>
+            </view>
+            <view class="commonTd">
+              <view class="commonTdKey">起始时间</view>
+              <view class="commonTdValue">{{item.startDate}}</view>
+            </view>
+            <view class="commonTd">
+              <view class="commonTdKey">最终时间</view>
+              <view class="commonTdValue">{{item.endDate}}</view>
+            </view>
+          </view> 
+        </block>
+      </block>
+      <block wx:else>
+        <view class="block">
+          <view class="subTitle bad">{{details.insuranceInfo.certification}}</view>
+          <view class="descript">
+            实名认证信息与社保中的姓名、身份证号不匹配。请与候选人重新核实。
+          </view>
+        </view>
+      </block>
+    </view>
+  </block>
+  
+  <block wx:if="{{details.fundInfo}}">
+    <view class="tableTitle title">公积金信息</view>
+    <view class="contentno">
+      <block  wx:if="{{!details.fundInfo.certification}}">
+        <view class="block">
+          <view class="commonTd">
+            <view class="commonTdKey">缴存城市</view>
+            <view class="commonTdValue">{{details.fundInfo.city}}</view>
+          </view>
+          <view class="commonTd">
+            <view class="commonTdKey">账户状态</view>
+            <view class="commonTdValue {{details.fundInfo.accountInfo.status == '0' ? 'bad' : ''}}">{{details.fundInfo.accountInfo.status == '0' ? '正常' : '停缴'}}</view>
+          </view>
+        </view> 
+        <view class="block"  wx:for="{{details.fundInfo.depositUnits}}" wx:key="{{index}}">  
+          <view class="commonTd">
+            <view class="commonTdKey">缴存单位1</view>
+            <view class="commonTdValue">{{item.name}}</view>
+          </view>
+          <view class="commonTd">
+            <view class="commonTdKey">起始时间</view>
+            <view class="commonTdValue">{{item.startDate}}</view>
+          </view>
+          <view class="commonTd">
+            <view class="commonTdKey">最终时间</view>
+            <view class="commonTdValue">{{item.endDate}}</view>
+          </view>
+        </view> 
+      </block>
+      <block wx:else>
+        <view class="block">
+          <view class="subTitle bad">{{details.fundInfo.certification}}</view>
+          <view class="descript">
+            实名认证信息与公积金中的姓名、身份证号不匹配。请与候选人重新核实。
+          </view>
+        </view>
+      </block>
+    </view>
+  </block>
+  
+  <block wx:if="{{details.negativeInfo}}">
+    <view class="tableTitle title">负面信息</view>
+    <view class="content">
+      <view class="negativeItem">
+        <view>是否网贷逾期</view>
+        <view class="{{details.overdue == '否' ? '' : 'bad'}}">{{details.isOverdue}}</view>
+      </view>
+      <view class="negativeItem">
+        <view>是否在法院公开被执行人名单</view>
+        <view class="{{details.sespondent == '否' ? '' : 'bad'}}">{{details.isRespondent}}</view>
+      </view>
+      <view class="negativeItem">
+        <view>是否在法院公开失信被执行人名单</view>
+        <view class="{{details.noCredit == '否' ? '' : 'bad'}}">{{details.isNoCredit}}</view>
+      </view>
+      <view class="negativeItem">
+        <view>是否存在犯罪记录</view>
+        <view class="{{details.hasCreminalRecord == '否' ? '' : 'bad'}}">{{details.hasCreminalRecord}}</view>
+      </view>
+      <view class="negativeItem">
+        <view>是否是吸毒人员</view>
+        <view class="{{details.drugster == '否' ? '' : 'bad'}}">{{details.isDrugster}}</view>
+      </view>
+    </view>
+  </block>
 </view> 
-
-
-
-

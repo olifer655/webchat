@@ -1,0 +1,14 @@
+<view class="circle">
+  <view class="item1 item"></view>
+  <view class="item2 item"></view>
+  <view class="item3 item"></view>
+  <view class="item4 item"></view>
+  <view class="item5 item"></view>
+  <view class="item6 item"></view>
+  <view class="item7 item"></view>
+  <view class="item8 item"></view>
+  <view class="item9 item"></view>
+  <view class="item10 item"></view>
+  <view class="item11 item"></view>
+  <view class="item12 item"></view>
+</view>

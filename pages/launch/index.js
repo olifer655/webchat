@@ -2,13 +2,18 @@ import API from '../../utils/api.js';
 
 Page({
   data: {
-    lists: []
+    lists: [],
+    hasUserInfo: false,
+    phone: '',
+    isCertification: false, 
   },
   onLoad: function() {
     this.init()
+    this.isLogin()
   },
   init: function(e) {
     let that = this
+    
     API.request({
       url: `${API.host}/v2/itm/list`,
       method: 'GET'
@@ -22,7 +27,25 @@ Page({
         icon: 'none'
       })
     })
+  },
+  isLogin: function() {
+    // 获取用户信息
+    API.request({
+      url: `${API.host}/v2/user/invest/info`,
+      method: 'GET'
+    }, res => {
+      let data = {
+        isCertification: res.hasCert,
+        phone: res.phone,
+        hasUserInfo: true
+      }
 
+      this.setData(data)
+    }, err => {
+      wx.redirectTo({
+        url: '../login/login'
+      })
+    })
   },
   toJump: function(e) {
     let path = e.currentTarget.dataset.path
@@ -38,7 +61,16 @@ Page({
       lists: this.data.lists
     })
   },
+  gotoCert: function() {
+    wx.navigateTo({
+      url: `../tocertification/tocertification?phone=${this.data.phone}`
+    })
+  },
   toNext: function() {
+    if (!this.data.isCertification) {
+      return this.gotoCert()
+    }
+    
     let totalPrice = 0;
     let idLists = [];
     let checks = [];
@@ -55,7 +87,7 @@ Page({
         flag = true
         idLists.push(lists[i].id);
         checks.push(lists[i].name);
-        totalPrice = totalPrice + lists[i].price
+        totalPrice = parseInt(totalPrice) + parseInt(lists[i].price)
       } 
     } 
     if(name) {
@@ -84,7 +116,7 @@ Page({
         data: idLists
       })
       wx.navigateTo({
-        url: '../pay/pay'
+        url: '/pages/pay/pay'
       })
     }
   }

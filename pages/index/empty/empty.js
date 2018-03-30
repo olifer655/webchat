@@ -1,8 +1,8 @@
 const egReportLists = [{
   id: 0,
-  respondentsName: '张大宝',
-  respondentsPhoneNo: '13116710000',
-  createTime: '01-04 13:45',
+  respondentName: '张小龙',
+  respondentPhone: '18333333333',
+  surveyTime: '01-04 13:45',
   status: '100'
 }]
 Component({
@@ -25,8 +25,5 @@ Component({
         url: '../../pages/introduce/introduce'
       })
     }
-  },
-  ready: function() {
-    console.log(this.properties);
   }
 })

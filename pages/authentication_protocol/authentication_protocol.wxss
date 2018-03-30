@@ -1,0 +1,25 @@
+.service {
+  font-size: 28rpx;
+  color: #5D5D5D;
+  background-color: #fff;
+  padding: 60rpx 30rpx;
+}
+.title {
+  font-size: 34rpx;
+  text-align: center;
+}
+.space {
+  display: inline-block;
+  width: 50rpx;
+  height: 28rpx;
+}
+.division {
+  padding-top: 40rpx;
+}
+.segmentation {
+  padding-top: 30rpx;
+}
+.underline {
+  text-decoration:underline;
+  font-weight: 900;
+}

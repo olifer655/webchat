@@ -33,7 +33,21 @@ image {
   padding: 20rpx 20rpx 20rpx 0;
 }
 
-.tr2:last-child, .tr:last-child {
+.tr3 {
+  border-bottom: 1rpx solid #e3e3e3;
+  margin-left: 30rpx;
+}
+
+.trKey {
+  padding: 20rpx 0;
+}
+
+.formInput {
+  line-height: 84rpx;
+  height: 84rpx;
+}
+
+.tr3:last-child, .tr2:last-child, .tr:last-child {
   border-bottom: 0;
 }
 
@@ -68,6 +82,7 @@ image {
   font-size: 32rpx;
 }
 .placeholder {
+  padding-left: 4rpx;
   color: #CCCCCC;
   font-size: 32rpx;
 }

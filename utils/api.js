@@ -1,11 +1,18 @@
 // const host = 'https://www.wemeeting.io/'
 const host = 'https://t-serge.wemeeting.io/api'
 
-const header = {
-  'content-type': 'application/json'
-}
-
 const request = (params, success, error) => {
+  let SESSION_ID = wx.getStorageSync('SESSION_ID')
+  let  header = {
+    'content-type': 'application/json',
+    'userTag': 'invest'
+  }
+
+  if (SESSION_ID) {
+    header.sgSessionId = SESSION_ID
+    header.cookie = `sessionId=${SESSION_ID}`
+  }
+
   wx.request({
     header,
     method: 'POST',
@@ -17,7 +24,8 @@ const request = (params, success, error) => {
       // res.data为接口返回的内容，结构 {errorCode: xxx, errorMsg: xxx, model: xxx}
       if (response.data.success) {
         success && success(response.data.model)
-        return
+      } else {
+        error && error(response.data)
       }
     },
     fail: () => {

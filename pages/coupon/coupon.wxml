@@ -1,40 +1,32 @@
-<view class="coupon">
-  <view class="couponIterm">
-    <view class="info">
-      <view class="intruduce">
-        <view class="couponInfo">
-          <text class="yuan">¥</text>
-          <text class="price">30</text>
-          <text class="name">优惠券</text>
+<block wx:if="{{coupons.length}}">
+  <view class="coupon">
+    <view class="couponIterm" wx:for="{{coupons}}" wx:key="{{index}}">
+      <view class="info">
+        <view class="intruduce">
+          <view class="couponInfo {{item.isValidate ? 'due' : ''}}">
+            <text class="yuan {{item.isValidate ? 'due' : ''}}">¥</text>
+            <text class="price {{item.isValidate ? 'due' : ''}}">{{item.couponMoney}}</text>
+            <text class="name">优惠券</text>
+          </view>
+          <view class="ps {{item.isValidate ? 'due' : ''}}">一次性抵用，不可叠加、不找零</view>
         </view>
-        <view class="ps">一次性抵用，不可叠加、不找零</view>
+        <view class="data {{item.isValidate ? 'due' : ''}}">
+          有效期至{{item.expireTime}}
+        </view>
       </view>
-      <view class="data">
-        有效期至2018-04-15
+      <image class="line" src="/images/line.png"></image>
+      <view class="handle" wx:if="{{item.isValidate}}">
+        <text class="toHandle due">已过期</text>
       </view>
-    </view>
-    <image class="line" src="/images/line.png"></image>
-    <view class="handle">
-      <text class="toHandle">立即使用</text>
+      <view class="handle" wx:if="{{!item.isValidate}}" bindtap="toJump">
+        <text class="toHandle">立即使用</text>
+      </view>
     </view>
   </view>
-  <view class="couponIterm">
-    <view class="info">
-      <view class="intruduce">
-        <view class="couponInfo {{isDue ? 'due' : ''}}">
-          <text class="yuan {{isDue ? 'due' : ''}}">¥</text>
-          <text class="price {{isDue ? 'due' : ''}}">30</text>
-          <text class="name">优惠券</text>
-        </view>
-        <view class="ps {{isDue ? 'due' : ''}}">一次性抵用，不可叠加、不找零</view>
-      </view>
-      <view class="data {{isDue ? 'due' : ''}}">
-        有效期至2018-04-15
-      </view>
-    </view>
-    <image class="line" src="/images/line.png"></image>
-    <view class="handle">
-      <text class="toHandle {{isDue ? 'due' : ''}}">{{ isDue? '已过期' : '立即使用' }}</text>
-    </view>
+</block>
+<block wx:else>
+  <view class="empty">        
+    <image class="emptyImage" src="/images/empty.png" mode="aspectFit"></image>
+    <view class="emptyText">暂无优惠券</view>
   </view>
-</view>
+</block>

@@ -26,3 +26,28 @@
   color: #999;
   font-size: 28rpx;
 }
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #ccc;
+  background-color: #fff;
+  height: 99vh;
+}
+.emptyImage {
+  height: 150rpx;
+  width: 127rpx;
+}
+.emptyText {
+  font-size: 28rpx;
+  color: #999999;
+  margin-top: 40rpx;
+}
+.loading {
+  display: flex;
+  margin: 40rpx auto 80rpx;
+  color: #999;
+  font-size: 28rpx;
+  justify-content:center;
+}

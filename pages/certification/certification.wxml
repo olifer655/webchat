@@ -1,14 +1,14 @@
 <view class="table">
   <view class="commonTd tr item">
     <view class="commonTdKey">姓名</view>
-    <view class="commonTdValue">张大宝</view>
+    <view class="commonTdValue">{{name}}</view>
   </view>
   <view class="commonTd tr item">
     <view class="commonTdKey">身份证</view>
-    <view class="commonTdValue">320111************</view>
+    <view class="commonTdValue">{{certNo}}</view>
   </view>
   <view class="commonTd tr item">
     <view class="commonTdKey">手机号</view>
-    <view class="commonTdValue">186****7678</view>
+    <view class="commonTdValue">{{phone}}</view>
   </view>
 </view>

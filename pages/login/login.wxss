@@ -78,7 +78,7 @@
   text-align: center;
   font-size: 38rpx;
   color: #FFF;
-  width: 690rpx;
+  width: 650rpx;
   margin: 133rpx auto 0;
 }
 

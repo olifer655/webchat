@@ -3,7 +3,7 @@ import API from '../../utils/api.js';
 Page({
   data: {
     isCheck: false,
-    isAgree: false,
+    isAgree: true,
     msg: '获取动态码',
     hasUserInfo: false,
     phone: String,
@@ -12,7 +12,7 @@ Page({
     canISubmit: false,
     isGetingMsg: false
   },
-  onLoad: function () {
+  onShow: function () {
     wx.hideTabBar({})
   },
   getMobile: function(e) {
@@ -49,7 +49,7 @@ Page({
       wx.showToast({
         title: res,
         icon: 'none',
-        duration: 2000
+        duration: 800
       })
     }, error => {
       wx.showToast({
@@ -70,13 +70,14 @@ Page({
       })
 
       seconds --
-      second = seconds > 10 ? seconds : `0${seconds}`
+      second = seconds > 9 ? seconds : `0${seconds}`
 
       if (seconds < 0) {
         second = 1
         clearInterval(inter) 
         that.setData({ 
           msg: '获取动态码', 
+          isGetingMsg: false
         }) 
       }
     }, 1000)  
@@ -108,15 +109,22 @@ Page({
       phone: this.data.phone,
       code: this.data.code
     }
+    let that = this
+
     API.request({
       url: `${API.host}/v2/user/invest/login`,
       data
     }, res => {
-      that.countdown()
+      this.countdown()
       wx.showToast({
-        title: res,
+        title: '登录成功',
         icon: 'none',
-        duration: 2000
+        duration: 2000,
+        success: () => {
+          wx.switchTab({
+            url: '../index/index'
+          })
+        }
       })
     }, error => {
       wx.showToast({
@@ -124,6 +132,11 @@ Page({
         icon: 'none',
         duration: 2000
       })
+    })
+  },
+  toJump: function() {
+    wx.navigateTo({
+      url: '../service_agreement/service_agreement'
     })
   }
 })

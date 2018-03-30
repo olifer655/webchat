@@ -1,22 +1,22 @@
 <!-- 0:待授权 、4:生成中、 6、生成失败  8、终止背调 9、完善信息中 -->
 <block>
-  <view class="tip {{candidateInfo.status == 6 || candidateInfo.status == 8 ? 'tiped' : 'tiping'}}">
-    {{ statusFilter[candidateInfo.status] }}
+  <view class="tip {{recordInfo.status == 6 || recordInfo.status == 8 ? 'tiped' : 'tiping'}}">
+    {{ statusFilter[recordInfo.status] }}
   </view>
 </block>
 <view class="table">
   <view class="tr2 flex">
     <text class="label">姓名</text>
-    <text class="value">{{ candidateInfo.respondentName }}</text>
+    <text class="value">{{ recordInfo.respondentName }}</text>
   </view>
   <view class="tr2 flex">
     <text class="label">手机号</text>
-    <text class="value">{{ candidateInfo.respondentPhone }}</text>
+    <text class="value">{{ recordInfo.respondentPhone }}</text>
     </view>
   <view class="tr2 flex">
     <text class="label">内容</text>
     <text class="value">
-      <text  wx:for="{{candidateInfo.resources}}" wx:key="{{index}}" class="resourcesItem">{{item}}</text>
+      <text  wx:for="{{recordInfo.resources}}" wx:key="{{index}}" class="resourcesItem">{{item}}</text>
     </text>
   </view>
 </view>
@@ -24,13 +24,13 @@
 <view class="checkBill" bindtap="toJump">
   查看报告账单
 </view>
-<block wx:if="{{candidateInfo.status != 6 && candidateInfo.status != 8}}">
+<block wx:if="{{recordInfo.status != 6 && recordInfo.status != 8}}">
   <view class="foot_bar">
-    <view class="ps" wx:if="{{candidateInfo.status === '0'}}">
+    <view class="ps" wx:if="{{recordInfo.status == 0}}">
       注：候选人授权后，将无法终止背调
     </view>
     <view class="btn">
-      <text bindtap="cancel" wx:if="{{candidateInfo.status === '0'}}" >终止背调</text>
+      <text bindtap="cancel" wx:if="{{recordInfo.status == 0}}" >终止背调</text>
       <text class="disabled" wx:else>候选人已授权，无法终止背调</text>
     </view>
   </view>

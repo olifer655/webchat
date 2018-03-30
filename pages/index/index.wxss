@@ -1,6 +1,10 @@
 swiper {
   height: 92vh;
 }
+scroll-view {
+  display: block;
+  widows: 100%;
+}
 .swiperTab {
   display: flex;
   background-color: #fff;
@@ -49,4 +53,11 @@ swiper {
 }
 swiper-item {
   overflow: auto;
+}
+.loading {
+  display: flex;
+  margin: 40rpx auto 80rpx;
+  color: #999;
+  font-size: 28rpx;
+  justify-content:center;
 }

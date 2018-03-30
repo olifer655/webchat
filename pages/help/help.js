@@ -3,8 +3,10 @@ Page({
     animation: '',
     animationNo: '',
     isLanch: false,
-    isCoupon: false,
-    isStop: false
+    isBill: false,
+    isStop: false,
+    isRefund: false,
+    isPc: false
   },
   onShow: function() {
     let animation = wx.createAnimation({
@@ -17,35 +19,24 @@ Page({
     this.animationNo = animationNo
     this.animation = animation
   },
-  lanch: function(e) {
-    this.setData({
-      isLanch: true,
-      isCoupon: false,
-      isStop: false,
-      animationLanch: this.animation.rotate(-180).step().export(),
-      animationCoupon: this.animationNo.rotate(0).step().export(),
-      animationStop: this.animationNo.rotate(0).step().export()
-    })
-  },
-  coupon: function(e) {
-    this.setData({
+  toggle: function(e) {
+    let is = e.currentTarget.dataset.is
+    let animation = e.currentTarget.dataset.animation
+    let date = {
       isLanch: false,
-      isCoupon: true,
+      isBill: false,
       isStop: false,
-      animationLanch: this.animationNo.rotate(0).step().export(),
-      animationCoupon: this.animation.rotate(-180).step().export(),
-      animationStop: this.animationNo.rotate(0).step().export()
-    })
-  },
-  stop: function(e) {
-    this.setData({
-      isLanch: false,
-      isCoupon: false,
-      isStop: true,
-      animationLanch: this.animationNo.rotate(0).step().export(),
-      animationCoupon: this.animationNo.rotate(0).step().export(),
-      animationStop: this.animation.rotate(-180).step().export()
-    })
+      isRefund: false,
+      isPc: false,
+      animationLanch: this.animation.rotate(0).step().export(),
+      animationBill: this.animationNo.rotate(0).step().export(),
+      animationStop: this.animationNo.rotate(0).step().export(),
+      animationRefund: this.animationNo.rotate(0).step().export(),
+      animationPC: this.animationNo.rotate(0).step().export()
+    }
+    date[is] = true
+    date[animation] = this.animationNo.rotate(-180).step().export()
+    this.setData(date)
   }
   
 })

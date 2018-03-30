@@ -1,6 +1,7 @@
 {
   "usingComponents": {
     "Reports": "../components/reports/reports",
-    "Empty": "./empty/empty"
+    "Empty": "./empty/empty",
+    "Loading": "../components/loading/loading"
   }
 }

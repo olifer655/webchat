@@ -35,11 +35,11 @@ image {
   margin-bottom: 30rpx;
 }
 .flow {
-  margin: 30rpx 58rpx 13rpx 58rpx;
+  margin: 30rpx auto;
   height: 560rpx;
 }
 .padding_bottom {
-  margin-bottom: 240rpx;
+  padding-bottom: 240rpx;
 }
 .QRcode {
   position: fixed;

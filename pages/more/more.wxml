@@ -11,6 +11,6 @@
     </view>
   </view>
 </view>
-<view class="btn">
+<view class="btn" bindtap="outLogin">
   手机号解绑
 </view>

@@ -23,3 +23,7 @@
   width: 26rpx;
   height: 16rpx;
 }
+
+.bottom {
+  margin-bottom: 42rpx;
+}
