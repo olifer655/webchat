@@ -6,12 +6,15 @@ Page({
     phone: '',
     isCertification: false,
     name: '',
-    certNo: ''
+    certNo: '',
+    hasUserInfo: false,
+    hasAvatarUrl: true
   },
-  onLoad: function() {  
+  onShow: function() {  
     this.init()
   }, 
   init: function() {
+    let that = this
     // 获取用户信息
     API.request({
       url: `${API.host}/v2/user/invest/info`,
@@ -19,7 +22,8 @@ Page({
     }, res => {
       let data = {
         isCertification: res.hasCert,
-        phone: res.phone
+        phone: res.phone,
+        hasUserInfo: true
       }
       if (res.hasCert) {
         data.name = res.name;
@@ -27,10 +31,8 @@ Page({
       }
       this.setData(data)
     }, err => {
-      wx.showToast({
-        title: err.errorMsg,
-        icon: 'none',
-        duration: 2000
+      wx.redirectTo({
+        url: '../login/login'
       })
     })
     
@@ -38,6 +40,11 @@ Page({
       success: res => {  
         this.setData({
           userInfo: res.userInfo
+        })
+      },
+      fail: res => {
+        this.setData({
+          hasAvatarUrl: false
         })
       }
     })

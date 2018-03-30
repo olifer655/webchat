@@ -4,6 +4,7 @@
 }
 .agreement {
   color: #00A2FF;
+  font-size: 28rpx;
 }
 .checkbox {
   font-size: 28rpx;

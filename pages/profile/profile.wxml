@@ -1,40 +1,42 @@
-<view class="menu">
-  <view class="menuIterm" bindtap="toJump">
-    <view class="userinfo">
-      <image class="avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
-      <text class="mobile">{{phone}}</text>
-      <text class="certification" wx:if="{{isCertification}}">已认证</text>
+<block wx:if="{{hasUserInfo}}">
+  <view class="menu">
+    <view class="menuIterm" bindtap="toJump">
+      <view class="userinfo">
+        <image wx:if="{{hasAvatarUrl}}" class="avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+        <image wx:if="{{!hasAvatarUrl}}" class="avatar" src="/images/pic.png" background-size="cover"></image>
+        <text class="mobile">{{phone}}</text>
+        <text class="certification" wx:if="{{isCertification}}">已认证</text>
+      </view>
+      <view class="check">
+        <text wx:if="{{!isCertification}}">进行实名认证</text>
+        <image src="/images/rdrop.png" class="ricon"></image>
+      </view>
     </view>
-    <view class="check">
-      <text wx:if="{{!isCertification}}">进行实名认证</text>
+  </view>
+  <view class="menu">
+    <view class="menuIterm" bindtap="goTo" data-path="bill">
+      <view>我的账单</view>
+      <image src="/images/rdrop.png" class="ricon"></image>
+    </view>
+    <view class="menuIterm" bindtap="goTo" data-path="coupon">
+      <view>我的优惠券</view>
       <image src="/images/rdrop.png" class="ricon"></image>
     </view>
   </view>
-</view>
-<view class="menu">
-  <view class="menuIterm" bindtap="goTo" data-path="bill">
-    <view>我的账单</view>
-    <image src="/images/rdrop.png" class="ricon"></image>
+  <view class="menu">
+    <view class="menuIterm" bindtap="goTo" data-path="introduce">
+      <view>产品介绍</view>
+      <image src="/images/rdrop.png" class="ricon"></image>
+    </view>
+    <view class="menuIterm" bindtap="goTo" data-path="help">
+      <view>帮助</view>
+      <image src="/images/rdrop.png" class="ricon"></image>
+    </view>
   </view>
-  <view class="menuIterm" bindtap="goTo" data-path="coupon">
-    <view>我的优惠券</view>
-    <image src="/images/rdrop.png" class="ricon"></image>
+  <view class="menu">
+    <view class="menuIterm" bindtap="goTo" data-path="more">
+      <view>更多</view>
+      <image src="/images/rdrop.png" class="ricon"></image>
+    </view>
   </view>
-</view>
-<view class="menu">
-  <view class="menuIterm" bindtap="goTo" data-path="introduce">
-    <view>产品介绍</view>
-    <image src="/images/rdrop.png" class="ricon"></image>
-  </view>
-  <view class="menuIterm" bindtap="goTo" data-path="help">
-    <view>帮助</view>
-    <image src="/images/rdrop.png" class="ricon"></image>
-  </view>
-</view>
-<view class="menu">
-  <view class="menuIterm" bindtap="goTo" data-path="more">
-    <view>更多</view>
-    <image src="/images/rdrop.png" class="ricon"></image>
-  </view>
-</view>
-
+</block>

@@ -50,7 +50,6 @@ Page({
         that.data.idLists = res.data
       } 
     })
-
   },
   selectCoupon: function() {
     // 如果已经取过优惠券信息，那么再点击时，不会去请求优惠券接口
@@ -160,32 +159,45 @@ Page({
     if (data.couponId) {
       params.couponId = parseInt(data.couponId)
     }
-    console.log(params)
     
     API.request({
       'url': `${API.host}/v2/survey/order/request`,
       data: params
     }, res => {
-      let wxData = res.wxPayData
-      wx.requestPayment({
-        timestamp: wxData.timeStamp,
-        nonceStr: wxData.nonceStr,
-        package: wxData.packageStr,
-        signType: wxData.signType,
-        paySign: wxData.paySign,
-        fail: err => {
-          wx.showToast({
-            title: '支付失败',
-            icon: 'none',
-            duration: 2000
-          })
-        }
-     })
+      if(parseInt(data.realTotalPrice) > 0) {
+        let wxData = res.wxPayData
+        wx.requestPayment({
+          timeStamp: wxData.timeStamp,
+          nonceStr: wxData.nonceStr,
+          package: wxData.packageStr,
+          signType: wxData.signType,
+          paySign: wxData.paySign,
+          success: res => {
+            wx.switchTab({
+              url: '../index/index'
+            })
+          },
+          fail: err => {
+            wx.showToast({
+              title: '支付失败',
+              icon: 'none',
+              duration: 2000
+            })
+          }
+        })
+      }
     }, error => {
       wx.showToast({
         title: error.errorMsg,
         icon: 'none',
-        duration: 2000
+        duration: 2000,
+        success: () => {
+          setTimeout(() => {
+            wx.switchTab({
+              url: '/pages/launch/index'
+            })
+          }, 2000);
+        }
       })
     })
   }

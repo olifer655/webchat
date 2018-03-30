@@ -1,35 +1,82 @@
 <view class="help">
   <view class="iterm">
-    <view class="itermBar" bindtap="lanch">
-      <view>如何发起背调?</view>
+    <view class="itermBar" bindtap="toggle" data-is="isLanch" data-animation="animationLanch">
+      <view>如何使用简简背调？</view>
       <image src="/images/ddrop.png" class="dicon" animation="{{animationLanch}}"></image>
     </view>
-    <view class="itermText" wx:if="{{isLanch}}">
-      这里是详细的细致的明确的正确的答案这里是详细的
-      细致的明确的正确的答案细致的明确的正确的答案细
-      细致的明确的正确的答案细致的明确的正确的答案致
-      细致的明确的正确的答案细致的明确的正确的答案的
-      明确的正确的答案
+    <block wx:if="{{isLanch}}">
+      <view class="itermText">
+        <view>第一步，发起背调邀请。</view>
+        <view> 选择需要查询的认证信息 （如身份证认证、学历认证等），输入候选人姓名和手机号，支付并发起认证邀请。</view>
+      </view>
+      <view class="itermText">
+        <view>第二步，等待候选人授权。</view>
+        <view>平台会给候选人发送短信链接，候选人点击短信链接进入授权页， 授权并完善信息。</view>
+      </view>
+      <view class="itermText bottom">
+        <view>第三步，查阅背调报告。</view>
+        <view>平台生成背调报告后，会通过手机短信进行通知。</view>
+      </view>
+    </block>
+  </view>
+  <view class="iterm">
+    <view class="itermBar" bindtap="toggle" data-is="isBill" data-animation="animationBill">
+      <view>可以背调的信息有哪些？如何收费？</view>
+      <image src="/images/ddrop.png" class="dicon" animation="{{animationBill}}"></image>
+    </view>
+    <view class="itermText bottom" wx:if="{{isBill}}">
+      <view>可以背调的信息和各自的单价分别为：</view>
+      <view>身份证认证——5元</view>
+      <view>手机号认证——5元</view>
+      <view>负面信息查询——5元</view>
+      <view>学历认证——5元</view>
+      <view>健康证查询——5元</view>
+      <view>职业资格证查询——10元</view>
+      <view>公积金查询——10元</view>
+      <view>社保查询——10元</view>
+      <view>此外，如有特殊套餐需求，可以添加QQ群544836619，进行咨询。</view>
     </view>
   </view>
   <view class="iterm">
-    <view class="itermBar" bindtap="coupon">
-      <view>如何使用优惠券？</view>
-      <image src="/images/ddrop.png" class="dicon" animation="{{animationCoupon}}"></image>
-    </view>
-    <view class="itermText" wx:if="{{isCoupon}}">
-      细致的明确的正确的答案细致的明确的正确的答案致
-      细致的明确的正确的答案细致的明确的正确的答案的
-      明确的正确的答案
-    </view>
-  </view>
-  <view class="iterm">
-    <view class="itermBar" bindtap="stop">
-      <view>终止背调后，钱如何退回？</view>
+    <view class="itermBar" bindtap="toggle" data-is="isStop" data-animation="animationStop">
+      <view>如何终止背调？</view>
       <image src="/images/ddrop.png" class="dicon" animation="{{animationStop}}"></image>
     </view>
-    <view class="itermText" wx:if="{{isStop}}">
-      这里是详细的细致的明确的正确的答案这里是详细的
+    <block wx:if="{{isStop}}">
+      <view class="itermText">
+        当报告处于“待授权”状态时（即候选人没有进行授权时），可以终止背调。
+      </view>
+      <view class="itermText bottom">  
+        在待处理报告列表页面，点击“待授权”状态报告进入报告详情页，点击页面下方的“终止背调”进行操作。
+      </view>
+    </block>
+  </view>
+  <view class="iterm">
+    <view class="itermBar" bindtap="toggle" data-is="isRefund" data-animation="animationRefund">
+      <view>产生退款怎么办？</view>
+      <image src="/images/ddrop.png" class="dicon" animation="{{animationRefund}}"></image>
+    </view>
+    <block wx:if="{{isRefund}}">
+      <view class="itermText">
+        <view>由于发起人点击“终止背调”而产生的退款：</view>
+        <view>第一次终止背调，实付金额全额退回支付账户；</view>
+        <view>从第二次终止背调开始，平台将扣取实付金额的6%作为手续费。</view>
+        <view>实际退款金额，将在3个工作日内退回支付账户。</view>
+      </view>
+      <view class="itermText bottom">
+        <view>由于报告生成失败等产品原因导致的退款：</view>
+        <view>支付金额将在3个工作日内，全额退回支付账户中。</view>
+        <view>如有疑问，请添加QQ群544836619，进行咨询。</view>
+      </view> 
+    </block>
+  </view>
+  <view class="iterm">
+    <view class="itermBar" bindtap="toggle" data-is="isPc" data-animation="animationPC">
+      <view>是否可以在PC端进行操作？</view>
+      <image src="/images/ddrop.png" class="dicon" animation="{{animationPC}}"></image>
+    </view>
+    <view class="itermText bottom" wx:if="{{isPc}}">
+      平台提供PC端背调产品。如有需要，请添加QQ群544836619，进行咨询。
     </view>
   </view>
 </view>

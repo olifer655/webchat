@@ -1,14 +1,12 @@
 <view class="tableTitle title">候选人信息</view>
 <view class="table">
-  <view class="table">
-    <view class="tr2 flex">
-      <text class="formItemKey">姓名</text>
-      <input class="formItemValue" bindinput="checkName" placeholder="请输入姓名" placeholder-class="placeholder" value="{{name}}"/>
-    </view>
-    <view class="tr2 flex">
-      <text class="formItemKey">手机号</text>
-      <input class="formItemValue" bindinput="checkMobile" type="number" name="phone" placeholder="请输入手机号" placeholder-class="placeholder" value="{{phone}}"/>
-    </view>
+  <view class="tr3 flex">
+    <text class="trKey formItemKey">姓名</text>
+    <input class="formInput formItemValue" bindinput="checkName" placeholder="请输入姓名" placeholder-class="placeholder" value="{{name}}"/>
+  </view>
+  <view class="tr3 flex">
+    <text class="trKey formItemKey">手机号</text>
+    <input class="formInput formItemValue" bindinput="checkMobile" type="number" name="phone" placeholder="请输入手机号" placeholder-class="placeholder" value="{{phone}}"/>
   </view>
 </view>
 
@@ -18,7 +16,7 @@
     <view class="checks">
       <text  wx:for="{{checks}}" wx:key="{{index}}" class="checksItem">{{item}}</text>
     </view>
-    <view class="totalPrice">¥ {{totalPrice}}</view>
+    <view class="totalPrice">¥ {{totalPrice}}.00</view>
   </view>
   <view class="tr between" bindtap="selectCoupon">
     <view>优惠券</view>
@@ -31,12 +29,13 @@
   <view class="tr between">
     <view>需支付</view>
     <view class="realTotalPrice"> 
-      ¥ {{realTotalPrice}}
+      ¥ {{realTotalPrice}}.00
     </view>
   </view>
 </view>
 
-<button class="{{canISubmit ? 'submitBtn btn' : 'btn'}}" bindtap="formSubmit">支付并发起认证</button>
+<button wx:if="{{canISubmit}}" class="submitBtn btn" bindtap="formSubmit">支付并发起认证</button>
+<button wx:if="{{!canISubmit}}" class="btn">支付并发起认证</button>
 <block wx:if="{{isShowCoupon}}">
   <Select is-use-coupon="{{isUseCoupon}}" is-select="{{isSelect}}" coupons="{{coupons}}" bind:closecoupon="closeCouponBlock"></Select>
 </block>

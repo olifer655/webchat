@@ -8,7 +8,7 @@ Page({
     canISubmit: false,
     certNoIsLegal: false,
     nameIsLegal: false,
-    isAgree: false
+    isAgree: true
   },
   onLoad: function(e) {
     this.setData({
@@ -43,5 +43,36 @@ Page({
   getIsAgree: function(e) {
     this.data.isAgree = e.detail.value[0]
     this.checkCanISubmit()
+  },
+  formSubmit: function() {
+    let that = this
+    API.request({
+      url: `${API.host}/v2/user/invest/cert`,
+      data: {
+        certNo: that.data.certNo,
+        name: that.data.name,
+        phone: that.data.phone
+      }
+    }, res => {
+      wx.showToast({
+        title: '发起认证成功',
+        icon: 'success',
+        duration: 2000
+      })
+      wx.navigateBack({
+        delta: 1
+      })
+    }, error => {
+      wx.showToast({
+        title: error.errorMsg,
+        icon: 'none',
+        duration: 2000
+      })
+    })
+  },
+  toJump() {
+    wx.redirectTo({
+      url: '../authentication_protocol/authentication_protocol'
+    })
   }
 })

@@ -6,7 +6,7 @@ Component({
     },
     isEg: {
       type: Boolean,
-      value: false
+      value: ''
     }
   },
   data: {

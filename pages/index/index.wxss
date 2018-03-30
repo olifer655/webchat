@@ -1,12 +1,21 @@
 swiper {
   height: 92vh;
 }
+scroll-view {
+  display: block;
+  widows: 100%;
+}
 .swiperTab {
   display: flex;
   background-color: #fff;
   font-size: 28rpx;
   border-bottom: 1rpx solid #E5E5E5;
-  border-top: 1rpx solid #E5E5E5;  
+  border-top: 1rpx solid #E5E5E5;
+  position: static;
+  top:0;
+  left:0;
+  right: 0;
+  z-index:99;
 }
 .title {
   font-size: 26rpx;
@@ -44,4 +53,11 @@ swiper {
 }
 swiper-item {
   overflow: auto;
+}
+.loading {
+  display: flex;
+  margin: 40rpx auto 80rpx;
+  color: #999;
+  font-size: 28rpx;
+  justify-content:center;
 }

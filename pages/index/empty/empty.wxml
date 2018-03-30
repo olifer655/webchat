@@ -1,7 +1,7 @@
 <view>
   <view class="content">
-    <view class="introduce">
-      <image class="introducePic" bindtap="toJump" src="/images/rectangle.png" mode="aspectFit" background-size="cover"></image>
+    <view class="introduce" bindtap="toJump">
+      <image class="introducePic" src="/images/rectangle.png" mode="aspectFit" background-size="cover"></image>
       <view class="recommend">
         <view class="headline">简简背调介绍</view>
         <view class="mainBody">

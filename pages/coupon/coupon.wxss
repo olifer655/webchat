@@ -54,7 +54,6 @@
   justify-content: center;
   align-items: center;
   margin-left: 20rpx;
-  width: 150rpx;
 }
 .toHandle {
   padding: 0 19rpx;
@@ -67,4 +66,22 @@
 .due {
   color: #909090;
   border: 0;
+}
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #ccc;
+  background-color: #fff;
+  height: 99vh;
+}
+.emptyImage {
+  height: 150rpx;
+  width: 127rpx;
+}
+.emptyText {
+  font-size: 28rpx;
+  color: #999999;
+  margin-top: 40rpx;
 }
