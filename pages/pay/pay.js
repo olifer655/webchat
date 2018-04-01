@@ -55,7 +55,7 @@ Page({
     // 如果已经取过优惠券信息，那么再点击时，不会去请求优惠券接口
     if(!this.data.coupons.length) {
       API.request({
-        'url': `${API.host}/v2/coupon/list`,
+        'url': `${API.host}/v2/coupon/list/valid`,
         method: 'GET'
       }, res => {
         this.data.coupons = res.coupons
@@ -76,7 +76,6 @@ Page({
         isShowCoupon: true
       })
     }
-    
   },
   closeCouponBlock: function(eventDetail) {
     let isCancel = eventDetail.detail.isCancel
@@ -125,7 +124,7 @@ Page({
   checkMobile: function(e) {
     // 手机号
     this.data.phone = e.detail.value
-    let regExp = /^(0|86|17951)?(13[0-9]|15[0-9]|18[0-9]|14[57]|17[678])[0-9]{8}$/
+    let regExp = /^(0|86|17951)?(1)[0-9]{10}$/
     this.data.mobileIsLegal = regExp.test(this.data.phone)
     this.checkCanISubmit()
   },

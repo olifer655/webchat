@@ -32,7 +32,7 @@ Component({
         wx.navigateTo({
           url: '../../pages/example/example'
         })
-      } else if(status == '2' || status === '3') {
+      } else if(status == '2' || status == '3') {
         wx.navigateTo({
           url: `../../pages/detail/detail?id=${id}`
         })

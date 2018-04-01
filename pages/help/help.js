@@ -29,13 +29,14 @@ Page({
       isRefund: false,
       isPc: false,
       animationLanch: this.animation.rotate(0).step().export(),
-      animationBill: this.animationNo.rotate(0).step().export(),
-      animationStop: this.animationNo.rotate(0).step().export(),
-      animationRefund: this.animationNo.rotate(0).step().export(),
-      animationPC: this.animationNo.rotate(0).step().export()
+      animationBill: this.animation.rotate(0).step().export(),
+      animationStop: this.animation.rotate(0).step().export(),
+      animationRefund: this.animation.rotate(0).step().export(),
+      animationPC: this.animation.rotate(0).step().export()
     }
-    date[is] = true
-    date[animation] = this.animationNo.rotate(-180).step().export()
+    console.log(is)
+    date[is] = !this.data[is]
+    date[animation] = this.data[is] ? this.animation.rotate(0).step().export() : this.animationNo.rotate(-180).step().export()
     this.setData(date)
   }
   

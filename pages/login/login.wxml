@@ -16,7 +16,7 @@
         name="phone" 
         bindinput="getMobile" 
         type="number" 
-        placeholder="手机号" 
+        placeholder="请输入您的手机号" 
         placeholder-class="placeholder" 
         value="{{phone}}"/>
     </view>
@@ -24,14 +24,14 @@
       <view class="inputCode">
         <image class="icon" 
           src="/images/safe.png" background-size="cover" mode="aspectFit"></image>
-        <input name="code" bindinput="getCode" type="number" placeholder-class="placeholder" placeholder="输入验证码"/>
+        <input name="code" bindinput="getCode" type="number" placeholder-class="placeholder" placeholder="请输入验证码"/>
       </view>
       <text wx:if="{{isGetingMsg}}" class="codeBtn getCodeing" type="number">{{ msg }}</text>
       <text wx:if="{{!isGetingMsg}}" class="codeBtn getCode" bindtap="sendmessg" type="number">{{ msg }}</text>
     </view>
-    <checkbox-group  class="checkbox" name="checkbox">
+    <checkbox-group  class="checkbox" name="checkbox" bindchange="getIsAgree">
       <label>
-        <checkbox bindchange="getIsAgree" checked="{{isAgree}}" value="{{!isAgree ? '1' : '0'}}"/>
+        <checkbox checked="{{isAgree}}" value="{{isAgree ? '1' : '0'}}"/>
         我已阅读并同意
       </label>
       <text bindtap="toJump" class="agreement" >《服务协议》</text>

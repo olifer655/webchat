@@ -7,7 +7,7 @@
   
   <view class="tr2 flex">
     <text class="formItemKey">身份证</text>
-    <input class="formItemValue" name="phone" bindinput="checkCertNum" type="number" placeholder="请输入身份证号" placeholder-class="placeholder" value="{{certNo}}"/>
+    <input class="formItemValue" name="phone" bindinput="checkCertNum" type="text" placeholder="请输入身份证号" placeholder-class="placeholder" value="{{certNo}}"/>
   </view>
   <view class="tr2 flex">
     <text class="formItemKey">手机号</text>
@@ -15,10 +15,11 @@
   </view>
   <checkbox-group class="checkGroup" bindchange="getIsAgree" name="checkbox">
     <label class="checkbox">
-      <checkbox checked="{{isAgree}}" value="{{!isAgree ? '1' : '0'}}"/>
+      <checkbox checked="{{isAgree}}" value="{{isAgree ? '1' : '0'}}"/>
       我已阅读并同意
      </label>
     <text class="agreement" bindtap="toJump">《平台服务协议》</text>
   </checkbox-group>
-  <button class="{{canISubmit ? 'submitBtn btn' : 'btn'}}" formType="submit">提交认证</button>
+  <button wx:if="{{canISubmit}}" class="submitBtn btn" formType="submit">提交认证</button>
+  <button wx:if="{{!canISubmit}}" class="btn">提交认证</button>
 </form>

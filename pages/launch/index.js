@@ -5,7 +5,7 @@ Page({
     lists: [],
     hasUserInfo: false,
     phone: '',
-    isCertification: false, 
+    isCertification: false
   },
   onLoad: function() {
     this.init()
@@ -13,7 +13,7 @@ Page({
   },
   init: function(e) {
     let that = this
-    
+
     API.request({
       url: `${API.host}/v2/itm/list`,
       method: 'GET'
@@ -77,7 +77,7 @@ Page({
     let that = this;
     let lists = this.data.lists;
     let length = lists.length;
-    let flag = false;
+    let flag = false; // 是否选中了某一项
     let name = null;
     for(let i = 0; i < length; i++ ) {
       if (lists[i].required && !lists[i].isClick) {

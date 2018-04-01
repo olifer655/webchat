@@ -47,7 +47,7 @@ Page({
     wx.showModal({
       title: '确定终止？',
       confirmText: '终止',
-      content: '平台将收取背调金额的6%作为技术服务费，剩余背调金额',
+      content: '终止背调后，平台将收取背调金额的6%作为技术服务费，剩余背调金额将在3个工作日内退回支付账户。',
       success: function(res) {
         if (res.confirm) {
           API.request({

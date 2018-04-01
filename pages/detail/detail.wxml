@@ -12,7 +12,7 @@
       </view>
       <view class="commonTd">
         <view class="commonTdKey">年龄</view>
-        <view class="commonTdValue">{{details.identityInfo.age}}</view>
+        <view class="commonTdValue">{{details.identityInfo.age}}岁</view>
       </view>
         <view class="commonTd">
         <view class="commonTdKey">身份证号</view>

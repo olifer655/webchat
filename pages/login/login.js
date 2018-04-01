@@ -18,7 +18,7 @@ Page({
   getMobile: function(e) {
     // 手机号
     this.data.phone = e.detail.value
-    let regExp = /^(0|86|17951)?(13[0-9]|15[0-9]|18[0-9]|14[57]|17[678])[0-9]{8}$/
+    let regExp = /^(0|86|17951)?(1)[0-9]{10}$/
     this.data.mobileIsLegal = regExp.test(this.data.phone)
     this.checkCanISubmit()
   },

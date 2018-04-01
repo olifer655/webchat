@@ -1,26 +1,14 @@
 <block wx:if="{{hasUserInfo}}">
   <view class="table padding">
     <view bindtap="toChoice" data-index="{{index}}" data-item="{{item}}" class="item {{item.isClick ? 'itemOn' : ''}}" wx:for="{{lists}}" wx:key="{{item.id}}">
-      <block wx:if="item.required">
-        <view class="title">{{item.name}}</view>
-        <view class="ps {{item.required || item.desc ? '' : 'hidden'}}">
-          <text class="icon"> * </text> {{item.required ? '必选' : item.desc}}
-        </view>
-        <view class="mark {{item.isClick ? 'markOn' : ''}}">
-          <image wx:if="{{item.isClick}}" mode="aspectFit" src="/images/checkMark.png" class="markIcon"></image>
-          <text class="price">{{item.price}}元</text>
-        </view>
-      </block>
-      <block wx:if="!item.required">
-        <view class="title">{{item.name}}</view>
-        <view class="ps {{item.required || item.desc ? '' : 'hidden'}}">
-          <text class="icon"> * </text> {{item.required ? '必选' : item.desc}}
-        </view>
-        <view class="mark {{item.isClick ? 'markOn' : ''}}">
-          <image wx:if="{{item.isClick}}" mode="aspectFit" src="/images/checkMark.png" class="markIcon"></image>
-          <text class="price">{{item.price}}元</text>
-        </view>
-      </block>
+      <view class="title">{{item.name}}</view>
+      <view class="ps {{item.required || item.desc ? '' : 'hidden'}}">
+        <text class="icon"> * </text> {{item.required ? '必选' : item.desc}}
+      </view>
+      <view class="mark {{item.isClick ? 'markOn' : ''}}">
+        <image wx:if="{{item.isClick}}" mode="aspectFit" src="/images/checkMark.png" class="markIcon"></image>
+        <text class="price">{{item.price}}元</text>
+      </view>
     </view>
   </view>
   <view class="btn" bindtap="toNext">
