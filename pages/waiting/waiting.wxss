@@ -24,9 +24,11 @@
   color: #464646;
 }
 .resourcesItem {
-  line-height: 55rpx;
-  width: 50%;
+  color:#464646;
+  font-size: 32rpx;
+  line-height: 45rpx;
   display: inline-block;
+  white-space: nowrap;
 }
 .checkBill {
   font-size: 26rpx;

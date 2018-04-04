@@ -117,13 +117,15 @@ Page({
     }, res => {
       this.countdown()
       wx.showToast({
-        title: '登录成功',
+        title: '欢迎使用简简背调',
         icon: 'none',
         duration: 2000,
         success: () => {
-          wx.switchTab({
-            url: '../index/index'
-          })
+          setTimeout(() => {
+            wx.reLaunch({
+              url: '../index/index'
+            })
+          }, 1000)
         }
       })
     }, error => {

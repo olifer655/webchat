@@ -12,7 +12,8 @@ Page({
     isShowCoupon: false,
     couponMoney: 0,
     couponId: 0,
-    isSelect: false
+    isSelect: false,
+    isSubmit: false
   },
   onLoad: function() {
     this.init()
@@ -153,12 +154,23 @@ Page({
     let params = {
       respondentName: data.name,
       respondentPhone: data.phone,
-      items: data.idLists.toString()
+      items: data.idLists.toString(),
+      amt: data.realTotalPrice
     }
     if (data.couponId) {
       params.couponId = parseInt(data.couponId)
     }
-    
+
+    if (data.isSubmit) {
+      return wx.showToast({
+        title: '请勿重复提交',
+        icon: 'none',
+        duration: 2000
+      })
+    }
+
+    data.isSubmit = true
+
     API.request({
       'url': `${API.host}/v2/survey/order/request`,
       data: params
@@ -172,17 +184,28 @@ Page({
           signType: wxData.signType,
           paySign: wxData.paySign,
           success: res => {
-            wx.switchTab({
+            data.isSubmit = false
+            wx.reLaunch({
               url: '../index/index'
             })
           },
           fail: err => {
+            data.isSubmit = false
             wx.showToast({
               title: '支付失败',
               icon: 'none',
-              duration: 2000
+              duration: 2000,
+              success: () => {
+                wx.navigateTo({
+                  url: '../launch/launch'
+                })
+              }
             })
           }
+        })
+      } else {
+        wx.reLaunch({
+          url: '../index/index'
         })
       }
     }, error => {

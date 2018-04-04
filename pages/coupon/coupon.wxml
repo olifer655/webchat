@@ -3,22 +3,22 @@
     <view class="couponIterm" wx:for="{{coupons}}" wx:key="{{index}}">
       <view class="info">
         <view class="intruduce">
-          <view class="couponInfo {{item.validate ? 'due' : ''}}">
-            <text class="yuan {{item.validate ? 'due' : ''}}">¥</text>
-            <text class="price {{item.validate ? 'due' : ''}}">{{item.couponMoney}}</text>
+          <view class="couponInfo {{item.validate ? '' : 'due'}}">
+            <text class="yuan {{item.validate ? '' : 'due'}}">¥</text>
+            <text class="price {{item.validate ? '' : 'due'}}">{{item.couponMoney}}</text>
             <text class="name">优惠券</text>
           </view>
-          <view class="ps {{item.validate ? 'due' : ''}}">一次性抵用，不可叠加、不找零</view>
+          <view class="ps {{item.validate ? '' : 'due'}}">一次性抵用，不可叠加、不找零</view>
         </view>
-        <view class="data {{item.validate ? 'due' : ''}}">
+        <view class="data {{item.validate ? '' : 'due'}}">
           有效期至{{item.expireTime}}
         </view>
       </view>
       <image class="line" src="/images/line.png"></image>
-      <view class="handle" wx:if="{{item.validate}}">
+      <view class="handle" wx:if="{{!item.validate}}">
         <text class="toHandle due">已过期</text>
       </view>
-      <view class="handle" wx:if="{{!item.validate}}" bindtap="toJump">
+      <view class="handle" wx:if="{{item.validate}}" bindtap="toJump">
         <text class="toHandle">立即使用</text>
       </view>
     </view>
@@ -26,7 +26,7 @@
 </block>
 <block wx:else>
   <view class="empty">        
-    <image class="emptyImage" src="/images/empty.png" mode="aspectFit"></image>
+    <image class="emptyImage" src="/images/couponempty.png" mode="aspectFit"></image>
     <view class="emptyText">暂无优惠券</view>
   </view>
 </block>

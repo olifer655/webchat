@@ -5,10 +5,13 @@
   margin: 108rpx auto 55px;
 }
 .icon {
-  height: 41rpx;
-  width: 30rpx;
+  height: 39rpx;
+  width: 36rpx;
   margin-bottom: 23rpx;
   margin-right: 30rpx;
+}
+.iconMobile {
+  width: 29rpx;
 }
 .checkbox {
   font-size: 28rpx;
@@ -56,10 +59,10 @@
 }
 
 .getCodeing {
-  color: #FFF;
+  color: #999;
   border: 0;
   width: 220rpx;
-  background-color: #D0DDE8;
+  background-color: #eeeeee;
 }
 
 .footer {

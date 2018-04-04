@@ -18,7 +18,8 @@ Page({
   },
   params: {
     pageNo: 1,
-    pageSize: 20
+    pageSize: 20,
+    loadedComputed: false,
   },
   onShow: function () {
     // 发送code给后端
@@ -81,10 +82,7 @@ Page({
       }  
     });  
   },
-  getReportLists: function() {
-    this.getPendingReportLists()
-    this.loadMore()
-  },
+
   getPendingReportLists: function() {
     let that = this
 
@@ -145,7 +143,7 @@ Page({
   },
   init: function() {  
     this.isLogin()
-    this.getReportLists()
-    this.getSwipeHeight()
+    this.getPendingReportLists()
+    this.loadMore()
   }
 })

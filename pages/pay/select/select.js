@@ -15,7 +15,7 @@ Component({
   },
   data: {
     couponTypeFilter: {
-      'full_discount': '优惠券'
+      'CASH_COUPON': '优惠券'
     }
   },
   methods: {

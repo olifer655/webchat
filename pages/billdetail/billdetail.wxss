@@ -13,7 +13,7 @@
 .title {
   font-size: 26rpx;
   color: #999;
-  font-size:32rpx;
+  padding-left: 30rpx;
 }
 .realPay {
   font-size: 42rpx;
@@ -24,6 +24,7 @@
   padding: 30rpx;
   background-color: #fff;
   font-size:32rpx;
+  color: #464646;
 }
 .ps {
   font-size: 30rpx;

@@ -19,15 +19,15 @@
     <view class="totalPrice">¥ {{totalPrice}}.00</view>
   </view>
   <view class="tr between" bindtap="selectCoupon">
-    <view>优惠券</view>
+    <view class="formItemKey">优惠券</view>
     <view>
       <text class="useCoupon" wx:if="{{!isUseCoupon}}">请选择优惠券</text>
-      <text wx:else class=" {{isUseCoupon ? 'slatOn' : ''}}">-¥{{couponMoney}}</text>
+      <text wx:else class=" {{isUseCoupon ? 'slatOn' : ''}}">-¥{{couponMoney}}.00</text>
       <image src="/images/rdrop.png" class="ricon"></image>
     </view>
   </view>
   <view class="tr between">
-    <view>需支付</view>
+    <view class="formItemKey">需支付</view>
     <view class="realTotalPrice"> 
       ¥ {{realTotalPrice}}.00
     </view>

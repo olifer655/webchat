@@ -19,6 +19,7 @@
 .slogan {
   font-size: 34rpx;
   text-align: center;
+  width: 100%;
 }
 .introduce {
   margin: 56rpx 50rpx 0;

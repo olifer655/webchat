@@ -16,25 +16,14 @@
 }
 .personInfo {
   font-size: 34rpx;
-  margin: 28rpx 0 23rpx;
+  margin: 32rpx 0 16rpx;
   overflow: hidden;
   white-space: nowrap;
   width: 400rpx;
-  text-overflow:ellipsis;
-}
-.name {
-  display: inline-block;
-  margin-right: 10rpx;
   text-overflow: ellipsis;
-  overflow: hidden;
-  white-space: nowrap;
-  max-width: 400rpx;
-}
-.mobile {
-  display: inline-block;
   color: #464646;
-  overflow: hidden;
 }
+
 .data {
   font-size: 28rpx;
   color: #959595;
@@ -52,6 +41,7 @@
   border-radius: 30rpx;
   margin-right: 20rpx;
   display:inline-block;
+  margin-top:15rpx;
 }
 .eg {
   color: #238DE5;

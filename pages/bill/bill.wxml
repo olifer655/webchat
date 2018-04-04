@@ -3,9 +3,9 @@
     <view class="tr" wx:for="{{lists}}" wx:key="recordId" data-id="{{item.recordId}}" bindtap="toJump">
       <view class="between up">
         <view class="name">候选人-{{item.respondentName}}</view>
-        <view wx:if="{{item.orderStatus == '3'}}" class="price">￥ {{item.originFee}}</view>
+        <view wx:if="{{item.orderStatus == '3'}}" class="price">￥ {{item.orderFee}}</view>
         <view wx:if="{{item.orderStatus == '-4'}}" class="refunded">退款成功</view>
-        <view wx:if="{{item.orderStatus == '2' || item.orderStatus == '-3'}}" class="refunding">{{item.orderStatus[orderStatusMap]}}</view>
+        <view wx:if="{{item.orderStatus == '2' || item.orderStatus == '-3'}}" class="refunding">{{orderStatusMap[item.orderStatus]}}</view>
       </view>
       <view class="date">
         {{item.surveyTime}}

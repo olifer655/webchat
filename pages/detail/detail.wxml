@@ -2,23 +2,23 @@
   <block wx:if="{{details.identityInfo}}">
     <view class="tableTitle title">身份信息</view>
     <view class="content">
-      <view class="commonTd">
+      <view class="commonTd" wx:if="{{details.identityInfo.name}}">
         <view class="commonTdKey">姓名</view>
         <view class="commonTdValue">{{details.identityInfo.name}}</view>
       </view>
-      <view class="commonTd">
+      <view class="commonTd" wx:if="{{details.identityInfo.gender}}">
         <view class="commonTdKey">性别</view>
         <view class="commonTdValue">{{details.identityInfo.gender}}</view>
       </view>
-      <view class="commonTd">
+      <view class="commonTd" wx:if="{{details.identityInfo.age}}">
         <view class="commonTdKey">年龄</view>
-        <view class="commonTdValue">{{details.identityInfo.age}}岁</view>
+        <view class="commonTdValue">{{details.identityInfo.age}}</view>
       </view>
-        <view class="commonTd">
+        <view class="commonTd" wx:if="{{details.identityInfo.idNo}}">
         <view class="commonTdKey">身份证号</view>
         <view class="commonTdValue">{{details.identityInfo.idNo}}</view>
       </view>
-        <view class="commonTd">
+        <view class="commonTd" wx:if="{{details.identityInfo.birthPlace}}">
         <view class="commonTdKey">籍贯</view>
         <view class="commonTdValue">{{details.identityInfo.birthPlace}}</view>
       </view>
@@ -30,17 +30,17 @@
     <view class="content">
       <view class="commonTd">
         <view class="commonTdKey">实名认证</view>
-        <view class="commonTdValue {{details.concatInfo.certification == '0' ? 'bad' : ''}}">{{details.concatInfo.certification == 0 ? '否' : '是'}}</view>
+        <view class="commonTdValue {{details.concatInfo.certification == '0' ? 'bad' : ''}}">{{details.concatInfo.certification == 0 ? '不通过' : '通过'}}</view>
       </view>
-      <view class="commonTd">
+      <view class="commonTd" wx:if="{{details.concatInfo.phoneNo}}">
         <view class="commonTdKey">手机号</view>
         <view class="commonTdValue">{{details.concatInfo.phoneNo}}</view>
       </view>
-      <view class="commonTd">
+      <view class="commonTd" wx:if="{{details.concatInfo.status}}">
         <view class="commonTdKey">状态</view>
         <view class="commonTdValue">{{details.concatInfo.status}}</view>
       </view>
-        <view class="commonTd">
+        <view class="commonTd" wx:if="{{details.concatInfo.onlineTime}}">
         <view class="commonTdKey">在网时长</view>
         <view class="commonTdValue">{{details.concatInfo.onlineTime}}</view>
       </view>
@@ -54,25 +54,25 @@
         <view class="commonTdKey">认证结果</view>
         <view class="commonTdValue {{details.educationInfo.certification == '0' ? 'bad' : ''}}">{{details.educationInfo.certification == '0' ? '不通过' : '通过'}}</view>
       </view>
-      <view class="commonTd">
+      <view class="commonTd" wx:if="{{details.educationInfo.school}}">
         <view class="commonTdKey">毕业院校</view>
         <view class="commonTdValue">{{ details.educationInfo.school }}</view>
       </view>
-      <view class="commonTd">
+      <view class="commonTd" wx:if="{{details.educationInfo.highestLevel}}">
         <view class="commonTdKey">最高学历</view>
         <view class="commonTdValue">{{ details.educationInfo.highestLevel }}</view>
       </view>
-      <view class="commonTd">
+      <view class="commonTd" wx:if="{{details.educationInfo.graduationDate}}">
         <view class="commonTdKey">毕业时间</view>
         <view class="commonTdValue">{{ details.educationInfo.graduationDate }}</view>
       </view>
-      <view class="commonTd">
+      <view class="commonTd" wx:if="{{details.educationInfo.studyForm}}">
         <view class="commonTdKey">学习形式</view>
-        <view class="commonTdValue">{{ details.educationInfo.studyFormcheck }}</view>
+        <view class="commonTdValue">{{ details.educationInfo.studyForm }}</view>
       </view>
-      <view class="commonTd">
+      <view class="commonTd" wx:if="{{details.educationInfo.graduateResult}}">
         <view class="commonTdKey">结论</view>
-        <view class="commonTdValue">{{details.educationInfo.graduateResult}}</view>
+        <view class="commonTdValue">{{ details.educationInfo.graduateResult }}</view>
       </view>
     </view>
   </block>
@@ -86,21 +86,21 @@
           <view class="commonTdKey">体检结果</view>
           <view class="commonTdValue {{item.physicalResult == '0' ? 'bad' : ''}}">{{details.healthInfo.physicalResult == '0' ? '不合格' : '合格'}}</view>
         </view>
-        <view class="commonTd">
+        <view class="commonTd" wx:if="{{item.physicalType}}">
           <view class="commonTdKey">体检类型</view>
           <view class="commonTdValue">{{item.physicalType}}</view>
         </view>
-        <view class="commonTd">
+        <view class="commonTd" wx:if="{{item.cardNo}}">
           <view class="commonTdKey">证件号码</view>
           <view class="commonTdValue">{{item.cardNo}}</view>
         </view>
-        <view class="commonTd">
+        <view class="commonTd" wx:if="{{item.compName}}">
           <view class="commonTdKey">体检机构</view>
           <view class="commonTdValue">{{item.compName}}</view>
         </view>
-        <view class="commonTd">
+        <view class="commonTd" wx:if="{{item.physicalDate}}">
           <view class="commonTdKey">体检日期</view>
-          <view class="commonTdValue">{{item.effectiveData}}</view>
+          <view class="commonTdValue">{{item.physicalDate}}</view>
         </view>
       </view>
     </view>
@@ -111,21 +111,21 @@
     <view class="contentno">
       <view class="block" wx:key="{{index}}" wx:for="{{details.qualificationInfo}}">
         <view class="subTitle">{{item.occupation}}</view>
-        <view class="commonTd">
+        <view class="commonTd" wx:if="{{item.level}}">
           <view class="commonTdKey">级别</view>
           <view class="commonTdValue">{{item.level}}</view>
         </view>
-        <view class="commonTd">
+        <view class="commonTd" wx:if="{{item.certificateId}}">
           <view class="commonTdKey">证书编号</view>
           <view class="commonTdValue">{{item.certificateId}}</view>
         </view>
-        <view class="commonTd">
+        <view class="commonTd" wx:if="{{item.issueOrg}}">
           <view class="commonTdKey">发证单位</view>
           <view class="commonTdValue">{{item.issueOrg}}</view>
         </view>
-        <view class="commonTd">
+        <view class="commonTd" wx:if="{{item.issueDate}}">
           <view class="commonTdKey">发证日期</view>
-          <view class="commonTdValue">{{item.validateDate}}</view>
+          <view class="commonTdValue">{{item.issueDate}}</view>
         </view>
       </view>
     </view>
@@ -136,26 +136,26 @@
     <view class="contentno">
       <block wx:if="{{!details.insuranceInfo.certification}}">
         <view class="block">
-          <view class="commonTd">
+          <view class="commonTd" wx:if="{{details.insuranceInfo.accountInfo.city}}">
             <view class="commonTdKey">缴存城市</view>
             <view class="commonTdValue">{{details.insuranceInfo.accountInfo.city}}</view>
           </view>
           <view class="commonTd">
             <view class="commonTdKey">账户状态</view>
-            <view class="commonTdValue {{details.insuranceInfo.accountInfo.status == '0' ? 'bad' : ''}}">{{details.insuranceInfo.accountInfo.status == '0' ? '正常' : '停缴'}}</view>
+            <view class="commonTdValue {{details.insuranceInfo.accountInfo.status !== '正常' ? 'bad' : ''}}">{{ details.insuranceInfo.accountInfo.status }}</view>
           </view>
         </view> 
         <block wx:if="{{details.insuranceInfo.depositUnits.length}}">
           <view class="block" wx:for="{{details.insuranceInfo.depositUnits}}" wx:key="{{index}}">  
-            <view class="commonTd">
+            <view class="commonTd" wx:if="{{item.name}}">
               <view class="commonTdKey">缴存单位</view>
               <view class="commonTdValue">{{item.name}}</view>
             </view>
-            <view class="commonTd">
+            <view class="commonTd" wx:if="{{item.startDate}}">
               <view class="commonTdKey">起始时间</view>
               <view class="commonTdValue">{{item.startDate}}</view>
             </view>
-            <view class="commonTd">
+            <view class="commonTd" wx:if="{{item.endDate}}">
               <view class="commonTdKey">最终时间</view>
               <view class="commonTdValue">{{item.endDate}}</view>
             </view>
@@ -178,25 +178,25 @@
     <view class="contentno">
       <block  wx:if="{{!details.fundInfo.certification}}">
         <view class="block">
-          <view class="commonTd">
+          <view class="commonTd" wx:if="{{details.fundInfo.accountInfo.city}}">
             <view class="commonTdKey">缴存城市</view>
-            <view class="commonTdValue">{{details.fundInfo.city}}</view>
+            <view class="commonTdValue">{{details.fundInfo.accountInfo.city}}</view>
           </view>
           <view class="commonTd">
             <view class="commonTdKey">账户状态</view>
-            <view class="commonTdValue {{details.fundInfo.accountInfo.status == '0' ? 'bad' : ''}}">{{details.fundInfo.accountInfo.status == '0' ? '正常' : '停缴'}}</view>
+            <view class="commonTdValue {{details.fundInfo.accountInfo.status !== '正常' ? 'bad' : ''}}">{{ details.fundInfo.accountInfo.status }}</view>
           </view>
         </view> 
         <view class="block"  wx:for="{{details.fundInfo.depositUnits}}" wx:key="{{index}}">  
-          <view class="commonTd">
-            <view class="commonTdKey">缴存单位1</view>
+          <view class="commonTd" wx:if="{{item.name}}">
+            <view class="commonTdKey">缴存单位</view>
             <view class="commonTdValue">{{item.name}}</view>
           </view>
-          <view class="commonTd">
+          <view class="commonTd" wx:if="{{item.startDate}}">
             <view class="commonTdKey">起始时间</view>
             <view class="commonTdValue">{{item.startDate}}</view>
           </view>
-          <view class="commonTd">
+          <view class="commonTd" wx:if="{{item.endDate}}">
             <view class="commonTdKey">最终时间</view>
             <view class="commonTdValue">{{item.endDate}}</view>
           </view>
@@ -218,23 +218,23 @@
     <view class="content">
       <view class="negativeItem">
         <view>是否网贷逾期</view>
-        <view class="{{details.overdue == '否' ? '' : 'bad'}}">{{details.isOverdue}}</view>
+        <view class="{{details.negativeInfo.overdue == '否' ? '' : 'bad'}}">{{details.negativeInfo.overdue}}</view>
       </view>
       <view class="negativeItem">
         <view>是否在法院公开被执行人名单</view>
-        <view class="{{details.sespondent == '否' ? '' : 'bad'}}">{{details.isRespondent}}</view>
+        <view class="{{details.negativeInfo.respondent == '否' ? '' : 'bad'}}">{{details.negativeInfo.respondent}}</view>
       </view>
       <view class="negativeItem">
         <view>是否在法院公开失信被执行人名单</view>
-        <view class="{{details.noCredit == '否' ? '' : 'bad'}}">{{details.isNoCredit}}</view>
+        <view class="{{details.negativeInfo.noCredit == '否' ? '' : 'bad'}}">{{details.negativeInfo.noCredit}}</view>
       </view>
       <view class="negativeItem">
         <view>是否存在犯罪记录</view>
-        <view class="{{details.hasCreminalRecord == '否' ? '' : 'bad'}}">{{details.hasCreminalRecord}}</view>
+        <view class="{{details.negativeInfo.hasCreminalRecord == '否' ? '' : 'bad'}}">{{details.negativeInfo.hasCreminalRecord}}</view>
       </view>
       <view class="negativeItem">
         <view>是否是吸毒人员</view>
-        <view class="{{details.drugster == '否' ? '' : 'bad'}}">{{details.isDrugster}}</view>
+        <view class="{{details.negativeInfo.drugster == '否' ? '' : 'bad'}}">{{details.negativeInfo.drugster}}</view>
       </view>
     </view>
   </block>

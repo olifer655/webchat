@@ -15,7 +15,7 @@
           <Reports report-lists="{{unReportLists}}"></Reports>
         </block>
         <block wx:if="{{!unReportLists.length && !newReportLists.length}}">
-          <view class="empty" style="height:{{winHeight - 49}}px">
+          <view class="empty">
             <image class="emptyImage" src="/images/empty.png" mode="aspectFit"></image>
             <view class="emptyText">暂时没有待处理报告</view>
           </view>
@@ -34,7 +34,7 @@
             </view>
           </block>  
           <block wx:else>
-            <view class="empty" style="height:{{winHeight - 49}}px">        
+            <view class="empty">        
               <image class="emptyImage" src="/images/empty.png" mode="aspectFit"></image>
               <view class="emptyText">暂时没有历史报告</view>
             </view>

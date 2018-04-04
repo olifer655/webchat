@@ -2,8 +2,7 @@
   <view class="reportItem" bindtap="toJump" data-id="{{item.recordId}}" data-status="{{item.status}}" wx:for="{{reportLists}}" wx:key="id">
     <view class="info">
       <view class="personInfo">
-        <view class="name">{{ item.respondentName }}</view>
-        <view class="mobile">{{ item.respondentPhone }}</view>
+        {{ item.respondentName }} {{ item.respondentPhone }}
       </view>
       <view class="data">{{ item.surveyTime }}</view>
     </view>

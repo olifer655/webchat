@@ -16,7 +16,7 @@
 }
 .item {
   display: inline-block;
-  width: 42%;
+  width: 42.5%;
   height: 165rpx;
   color: #464646;
   position: relative;
@@ -29,7 +29,7 @@
 }
 .itemOn {
   border: 1rpx solid #62b1ef;
-  background-color: #C1E8FF;
+  background-color: rgba(193,232,255, .4);
 }
 
 .title {
@@ -38,10 +38,21 @@
 .ps {
   color: #9A9A9A;
   font-size: 24rpx;
-  width: 200rpx;
+  width: 280rpx;
+  height: 80rpx;
+  display: flex;
 }
 .icon {
   color: #FF6060;
+  padding-right: 10rpx;
+  display: inline-block;
+}
+.psText {
+  width: 280rpx;
+  height: 80rpx;
+  display: inline-block;
+  position: relative;
+  z-index: 10;
 }
 .mark {
   position: absolute;
@@ -51,7 +62,7 @@
   border-radius: 29rpx 0 8rpx 0;
   text-align: right;
   color: #fff;
-  padding:12rpx 14rpx 9rpx 24rpx;
+  padding: 6rpx 14rpx 6rpx 24rpx;
 }
 .markOn {
   background-color: #00A2FF;
@@ -71,7 +82,7 @@
   align-items: center;
   justify-content: center;
   margin-top: 35rpx;
-  font-size: 20rpx;
+  font-size: 26rpx;
   color: #00A2FF;
   padding-bottom: 69rpx;
 }

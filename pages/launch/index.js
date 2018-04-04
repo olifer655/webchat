@@ -7,9 +7,22 @@ Page({
     phone: '',
     isCertification: false
   },
+  flag: false,
   onLoad: function() {
     this.init()
     this.isLogin()
+  },
+  onShow: function() {
+    /** 
+     * 本页流程：
+     * flag,来判断是否是首次进入,首次进入，如果执行那么会报错
+     * 如果用户未实名认证，那么先进行实名，然后在进行下一步
+     * 当时进行实名认证后，回到这里， onLoad不会再进行，
+     * 所以这里才又添了 onShow 这一步。
+    **/
+    if (this.flag) {
+      this.isLogin()
+    }
   },
   init: function(e) {
     let that = this
@@ -34,6 +47,7 @@ Page({
       url: `${API.host}/v2/user/invest/info`,
       method: 'GET'
     }, res => {
+      this.flag = true
       let data = {
         isCertification: res.hasCert,
         phone: res.phone,
@@ -42,6 +56,7 @@ Page({
 
       this.setData(data)
     }, err => {
+      this.flag = true
       wx.redirectTo({
         url: '../login/login'
       })

@@ -2,11 +2,11 @@
   padding-bottom: 60rpx;
 }
 .title {
-  border-left: 5rpx solid #007DD3;
+  border-left: 5rpx solid #00a2ff;
   
 }
 .content {
-  padding: 30rpx 40rpx 30rpx 40rpx;
+  padding: 0 40rpx 30rpx 40rpx;
   border-bottom: 1rpx solid #E3E3E3;
   background-color: #fff;
   font-size: 30rpx;
@@ -42,10 +42,11 @@
 .subTitle {
   color: #464646;
   font-size: 30rpx;
+  padding-top: 30rpx;
 }
 .block {
   border-bottom: 1rpx solid #e6e6e6;
-  padding:30rpx 40rpx 30rpx 0rpx;
+  padding: 0 40rpx 30rpx 0rpx;
   margin-left: 40rpx;
 }
 .block:last-child {

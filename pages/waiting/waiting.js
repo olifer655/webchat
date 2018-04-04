@@ -26,6 +26,14 @@ Page({
       method: 'GET'
     }, res => {
       this.data.recordInfo = res.recordInfo
+
+      let length = this.data.recordInfo.resources.length
+      
+      this.data.recordInfo.resources.map((item, index) => {
+        if(index != length -1) {
+          this.data.recordInfo.resources[index] = item + '、'
+        }
+      })
       this.setData({
         recordInfo: this.data.recordInfo
       })
@@ -59,7 +67,7 @@ Page({
               icon: 'success',
               duration: 2000
             })
-            wx.switchTab({
+            wx.reLaunch({
               url: '../index/index'
             })
           }, error => {

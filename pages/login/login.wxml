@@ -7,7 +7,7 @@
   </image>
   <form class="form" bindsubmit="formSubmit">
     <view class="info">
-      <image class="icon" 
+      <image class="icon iconMobile" 
         src="/images/mobile.png" 
         background-size="cover" 
         mode="aspectFit">

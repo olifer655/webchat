@@ -3,7 +3,8 @@
     <view bindtap="toChoice" data-index="{{index}}" data-item="{{item}}" class="item {{item.isClick ? 'itemOn' : ''}}" wx:for="{{lists}}" wx:key="{{item.id}}">
       <view class="title">{{item.name}}</view>
       <view class="ps {{item.required || item.desc ? '' : 'hidden'}}">
-        <text class="icon"> * </text> {{item.required ? '必选' : item.desc}}
+        <text class="icon"> * </text> 
+        <text class="psText">{{item.required ? '必选' : item.desc}}</text>
       </view>
       <view class="mark {{item.isClick ? 'markOn' : ''}}">
         <image wx:if="{{item.isClick}}" mode="aspectFit" src="/images/checkMark.png" class="markIcon"></image>

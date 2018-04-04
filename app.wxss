@@ -78,7 +78,7 @@ image {
 }
 .formItemValue {
   flex: 4;
-  color: #999999;
+  color: #464646;
   font-size: 32rpx;
 }
 .placeholder {
