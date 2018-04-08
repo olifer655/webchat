@@ -197,7 +197,7 @@ Page({
               duration: 2000,
               success: () => {
                 wx.navigateTo({
-                  url: '../launch/launch'
+                  url: '../launch/index'
                 })
               }
             })
