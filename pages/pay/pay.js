@@ -184,10 +184,12 @@ Page({
           signType: wxData.signType,
           paySign: wxData.paySign,
           success: res => {
-            data.isSubmit = false
-            wx.reLaunch({
-              url: '../index/index'
+            data.isSubmit = false;
+           
+            wx.navigateTo({
+              url: '../first/first'
             })
+            
           },
           fail: err => {
             data.isSubmit = false

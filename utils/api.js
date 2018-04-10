@@ -1,5 +1,5 @@
-// const host = 'https://t-serge.wemeeting.io/api'
-const host = 'https://serge.wemeeting.io/api'
+const host = 'https://t-serge.wemeeting.io/api'
+// const host = 'https://serge.wemeeting.io/api'
 
 const request = (params, success, error) => {
   let SESSION_ID = wx.getStorageSync('SESSION_ID')
