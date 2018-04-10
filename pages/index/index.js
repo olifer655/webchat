@@ -19,11 +19,34 @@ Page({
   params: {
     pageNo: 1,
     pageSize: 20,
-    loadedComputed: false,
+    loadedComputed: false
   },
   onShow: function () {
     // 发送code给后端
     this.init()
+  },
+  onPullDownRefresh: function() {
+    wx.showNavigationBarLoading()
+    // 一系列初始化
+    this.params = {
+      pageNo: 1,
+      pageSize: 20,
+      loadedComputed: false
+    }
+    this.data.newReportLists =  []
+    this.data.unReportLists = []
+    this.data.historyLists = []
+    this.isLoading = false
+    this.loadedComputed = false
+
+    this.init()
+
+    // 因为需要同时请求3个接口，又不想从新写新逻辑，
+    // 所以就将停止方式插入队列尾部吧
+    setTimeout(() => {
+      wx.stopPullDownRefresh()
+      wx.hideNavigationBarLoading()
+    }, 100)
   },
   switchTab: function(e) {
     this.getSwipeHeight()
