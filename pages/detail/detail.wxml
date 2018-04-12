@@ -77,10 +77,13 @@
     </view>
   </block>
   
-  <block wx:if="{{details.healthInfo.length}}">
+  <block wx:if="{{details.healthInfo}}">
     <view class="tableTitle title">健康证</view>
-    <view class="contentno">
-      <view wx:for="{{details.healthInfo}}" wx:key="{{index}}" class="block">
+    <view class="content contentnot" wx:if="{{details.healthInfo.certification}}">
+    {{details.healthInfo.certification}}
+    </view>
+    <view class="contentno" wx:if="{{!details.healthInfo.certification}}">
+      <view wx:for="{{details.healthInfo.datas}}" wx:key="{{index}}" class="block">
         <view class="subTitle">{{item.area}}</view>
         <view class="commonTd">
           <view class="commonTdKey">体检结果</view>
@@ -108,8 +111,11 @@
   
   <block wx:if="{{details.qualificationInfo}}">
     <view class="tableTitle title">职业资格证</view>
-    <view class="contentno">
-      <view class="block" wx:key="{{index}}" wx:for="{{details.qualificationInfo}}">
+    <view class="content contentnot" wx:if="{{details.qualificationInfo.certification}}">
+    {{details.qualificationInfo.certification}}
+    </view>
+    <view class="contentno" wx:if="{{!details.qualificationInfo.certification}}">
+      <view class="block" wx:key="{{index}}" wx:for="{{details.qualificationInfo.datas}}">
         <view class="subTitle">{{item.occupation}}</view>
         <view class="commonTd" wx:if="{{item.level}}">
           <view class="commonTdKey">级别</view>
@@ -133,7 +139,10 @@
   
   <block wx:if="{{details.insuranceInfo}}">
     <view class="tableTitle title">社保信息</view>
-    <view class="contentno">
+    <view class="content contentnot" wx:if="{{details.insuranceInfo.certification}}">
+    {{details.insuranceInfo.certification}}
+    </view>
+    <view class="content contentnot" wx:if="{{!details.insuranceInfo.certification}}">
       <block wx:if="{{!details.insuranceInfo.certification}}">
         <view class="block">
           <view class="commonTd" wx:if="{{details.insuranceInfo.accountInfo.city}}">
@@ -145,7 +154,7 @@
             <view class="commonTdValue {{details.insuranceInfo.accountInfo.status !== '正常' ? 'bad' : ''}}">{{ details.insuranceInfo.accountInfo.status }}</view>
           </view>
         </view> 
-        <block wx:if="{{details.insuranceInfo.depositUnits.length}}">
+        <block wx:if="{{details.insuranceInfo.depositUnits}}">
           <view class="block" wx:for="{{details.insuranceInfo.depositUnits}}" wx:key="{{index}}">  
             <view class="commonTd" wx:if="{{item.name}}">
               <view class="commonTdKey">缴存单位</view>
@@ -175,6 +184,9 @@
   
   <block wx:if="{{details.fundInfo}}">
     <view class="tableTitle title">公积金信息</view>
+    <view class="content contentnot" wx:if="{{details.fundInfo.certification}}">
+    {{details.fundInfo.certification}}
+    </view>
     <view class="contentno">
       <block  wx:if="{{!details.fundInfo.certification}}">
         <view class="block">

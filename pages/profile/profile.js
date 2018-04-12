@@ -8,7 +8,8 @@ Page({
     name: '',
     certNo: '',
     hasUserInfo: false,
-    hasAvatarUrl: true
+    hasAvatarUrl: true,
+    balance: 0
   },
   onShow: function() {  
     this.init()
@@ -47,6 +48,20 @@ Page({
           hasAvatarUrl: false
         })
       }
+    })
+
+    this.getBalance()
+  },
+  getBalance: function() {
+    API.request({
+      url: `${API.host}/v2/acct/balance`,
+      method: 'GET'
+    }, res => {
+      this.setData({
+        balance: res.balance
+      })
+    }, err => {
+
     })
   },
   goTo: function(e) {

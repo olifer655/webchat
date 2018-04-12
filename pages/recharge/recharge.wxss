@@ -1,0 +1,43 @@
+.recharge {
+  margin-top: 35rpx;
+  padding: 40rpx 30rpx 40rpx 55rpx;
+  background-color: #fff;
+  color: #464646;
+}
+
+.title {
+  padding-bottom: 59rpx;
+}
+
+.account {
+  color: #464646;
+  font-size: 50rpx;
+  padding-bottom: 79rpx;
+  font-family: 'PingFang SC'
+}
+
+.amt {
+  height: 70rpx;
+}
+
+.btn {
+  background-color: #D2D7DB;
+  border-radius: 10rpx;
+  line-height: 84rpx;
+  text-align: center;
+  font-size: 38rpx;
+  color: #FFF;
+  width: 690rpx;
+  margin: 100rpx auto 0;
+}
+
+.submitBtn {
+  background: #238DE5;
+}
+
+.placeholder {
+  padding-left: 7rpx;
+  color: #CCCCCC;
+  font-size: 50rpx;
+  line-height: 70rpx;
+}

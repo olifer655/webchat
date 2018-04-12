@@ -14,6 +14,15 @@
     </view>
   </view>
   <view class="menu">
+    <view class="menuIterm" bindtap="goTo" data-path="balance">
+      <view>账户余额</view>
+      <view>
+        <text class="balance">¥ {{balance}}.00</text>
+        <image src="/images/rdrop.png" class="ricon"></image>
+      </view>
+    </view>
+  </view>
+  <view class="menu">
     <view class="menuIterm" bindtap="goTo" data-path="bill">
       <view>我的账单</view>
       <image src="/images/rdrop.png" class="ricon"></image>

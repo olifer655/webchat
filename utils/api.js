@@ -5,7 +5,8 @@ const request = (params, success, error) => {
   let SESSION_ID = wx.getStorageSync('SESSION_ID')
   let  header = {
     'content-type': 'application/json',
-    'userTag': 'invest'
+    'userTag': 'invest',
+    'clientChannel': 'WECHATAPP'
   }
 
   if (SESSION_ID) {

@@ -26,27 +26,26 @@ Page({
     this.init()
   },
   onPullDownRefresh: function() {
-    wx.showNavigationBarLoading()
     // 一系列初始化
-    this.params = {
-      pageNo: 1,
-      pageSize: 20,
+    this.params.pageNo = 1
+    this.params.pageSize = 20
+    this.setData({
+      historyLists: [],
+      isLoading: false,
       loadedComputed: false
-    }
-    this.data.newReportLists =  []
-    this.data.unReportLists = []
-    this.data.historyLists = []
-    this.isLoading = false
-    this.loadedComputed = false
+    })
 
-    this.init()
-
-    // 因为需要同时请求3个接口，又不想从新写新逻辑，
-    // 所以就将停止方式插入队列尾部吧
+    wx.showNavigationBarLoading()
+    
+    this.loadMore()
+    /**
+     * 因为需要同时请求3个接口，又不想从新写新逻辑，
+     * 所以就将停止方式插入队列尾部吧
+    **/
     setTimeout(() => {
       wx.stopPullDownRefresh()
       wx.hideNavigationBarLoading()
-    }, 100)
+    }, 100) 
   },
   switchTab: function(e) {
     this.getSwipeHeight()

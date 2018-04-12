@@ -1,0 +1,28 @@
+.balance {
+  border-top: 1rpx solid #e3e3e3;
+  background-color: #fff;
+  width: 100%;
+  text-align: center;
+  color: #464646;
+}
+.title {
+  padding: 80rpx 0 40rpx;
+}
+
+.account {
+  color: #238DE5;
+  font-size: 100rpx;
+  padding-bottom: 79rpx;
+}
+
+.btn {
+  background-color: #238DE5;
+  border-radius: 10rpx;
+  line-height: 84rpx;
+  text-align: center;
+  font-size: 38rpx;
+  color: #FFF;
+  width: 690rpx;
+  margin: 100rpx auto 0;
+}
+

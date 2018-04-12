@@ -1,0 +1,10 @@
+<view class="recharge">
+  <view class="title">充值金额</view>
+  <view class="flex account">
+    <view>¥</view>
+    <input class="amt" type="number" bindinput="recharge" placeholder="请输入充值金额" placeholder-class="placeholder" value="{{amt}}"/>
+  </view>
+</view>
+
+<view wx:if="{{!canISubmit}}" class="btn">马上充值</view>
+<view wx:if="{{canISubmit}}" class="btn submitBtn" bindtap="formSubmit">马上充值</view>

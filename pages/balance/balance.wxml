@@ -1,0 +1,8 @@
+<view class="balance">
+  <view class="title">当前余额</view>
+  <view class="account">
+    ¥ {{balance}}.00
+  </view>
+</view>
+
+<view class="btn" bindtap="jump">充值</view>

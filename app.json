@@ -1,8 +1,8 @@
 {
   "pages": [
-
     "pages/first/first",
     "pages/authentication_protocol/authentication_protocol",
+    "pages/balance/balance",
     "pages/index/index",
     "pages/bill/bill",
     "pages/billdetail/billdetail",
@@ -17,6 +17,7 @@
     "pages/login/login",
     "pages/more/more",
     "pages/profile/profile",
+    "pages/recharge/recharge",
     "pages/service_agreement/service_agreement",
     "pages/tocertification/tocertification",
     "pages/waiting/waiting"
@@ -26,8 +27,7 @@
     "navigationBarBackgroundColor": "#fff", 
     "navigationBarTitleText": "简简背调",
     "navigationBarTextStyle": "black",
-    "backgroundColor": "#eeeeee",
-    "enablePullDownRefresh": true
+    "backgroundColor": "#eeeeee"
   },
   "tabBar": {
     "selectedColor": "#000000",

@@ -175,41 +175,9 @@ Page({
       'url': `${API.host}/v2/survey/order/request`,
       data: params
     }, res => {
-      if(parseInt(data.realTotalPrice) > 0) {
-        let wxData = res.wxPayData
-        wx.requestPayment({
-          timeStamp: wxData.timeStamp,
-          nonceStr: wxData.nonceStr,
-          package: wxData.packageStr,
-          signType: wxData.signType,
-          paySign: wxData.paySign,
-          success: res => {
-            data.isSubmit = false;
-           
-            wx.navigateTo({
-              url: '../first/first'
-            })
-            
-          },
-          fail: err => {
-            data.isSubmit = false
-            wx.showToast({
-              title: '支付失败',
-              icon: 'none',
-              duration: 2000,
-              success: () => {
-                wx.navigateTo({
-                  url: '../launch/index'
-                })
-              }
-            })
-          }
-        })
-      } else {
-        wx.reLaunch({
-          url: '../index/index'
-        })
-      }
+      wx.reLaunch({
+        url: '../index/index'
+      })
     }, error => {
       wx.showToast({
         title: error.errorMsg,

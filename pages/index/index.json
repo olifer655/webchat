@@ -3,5 +3,7 @@
     "Reports": "../components/reports/reports",
     "Empty": "./empty/empty",
     "Loading": "../components/loading/loading"
-  }
+  },
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark"
 }
